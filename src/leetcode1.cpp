@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   vector<int> twoSum(vector<int>& nums, int target) {
     unordered_map<int, int> m;  // value -> index
@@ -18,7 +18,7 @@ class Solution {
 };
 
 TEST(leetcode1, case1) {
-  Solution s;
+  MyQueue s;
   vector<int> nums = {2, 7, 11, 15};
   int target = 9;
   vector<int> expect = {0, 1};

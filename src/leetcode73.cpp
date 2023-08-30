@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int minDistance(string word1, string word2) {
     int n = word1.size();
@@ -35,7 +35,7 @@ class Solution {
 };
 
 TEST(leetcode72, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.minDistance("horse", "ros"), 3);
   EXPECT_EQ(s.minDistance("intention", "execution"), 5);
 }

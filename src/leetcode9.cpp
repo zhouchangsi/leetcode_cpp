@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   bool isPalindrome(int x) {
     if (x == 0) {
@@ -21,7 +21,7 @@ class Solution {
 };
 
 TEST(leetcode9, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.isPalindrome(121), true);
   EXPECT_EQ(s.isPalindrome(-121), false);
   EXPECT_EQ(s.isPalindrome(10), false);

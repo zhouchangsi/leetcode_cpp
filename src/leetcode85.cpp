@@ -2,10 +2,11 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int maximalRectangle(vector<vector<char>>& matrix) {
-    if (matrix.empty()) return 0;
+    if (matrix.empty())
+      return 0;
     int n = matrix.size();
     int m = n > 0 ? matrix[0].size() : 0;
     cout << n << " " << m << endl;
@@ -17,7 +18,8 @@ class Solution {
       }
 
       cout << "heights: ";
-      for (auto h : heights) cout << h << " ";
+      for (auto h : heights)
+        cout << h << " ";
       cout << endl;
 
       int current_row_max_area = largestRectangleArea(heights);
@@ -50,7 +52,7 @@ class Solution {
 };
 
 TEST(leetcode85, leetcode85) {
-  Solution solution;
+  MyQueue solution;
   {
     vector<vector<char>> input = {{'1', '0', '1', '0', '0'},
                                   {'1', '0', '1', '1', '1'},

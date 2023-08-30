@@ -1,27 +1,27 @@
 /**
  * https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/
-*/
+ */
 #include "common_headers.h"
 
 using namespace std;
 
 struct TreeNode {
   int val;
-  TreeNode *left;
-  TreeNode *right;
+  TreeNode* left;
+  TreeNode* right;
   TreeNode() : val(0), left(nullptr), right(nullptr) {}
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-  TreeNode(int x, TreeNode *left, TreeNode *right)
+  TreeNode(int x, TreeNode* left, TreeNode* right)
       : val(x), left(left), right(right) {}
 };
 
-TreeNode *create_tree_from(vector<int>) {
-    return nullptr;
+TreeNode* create_tree_from(vector<int>) {
+  return nullptr;
 }
 
-class Solution {
-public:
-  void flatten(TreeNode *root) {
+class MyQueue {
+ public:
+  void flatten(TreeNode* root) {
     preorder(root);
     for (int i = 1; i < pre_order_notes.size(); i++) {
       auto p = pre_order_notes[i - 1];
@@ -31,7 +31,7 @@ public:
   }
 
   vector<TreeNode*> pre_order_notes = vector<TreeNode*>();
-  vector<TreeNode *> preorder(TreeNode *root) {
+  vector<TreeNode*> preorder(TreeNode* root) {
     if (root == nullptr) {
       return pre_order_notes;
     }
@@ -43,13 +43,13 @@ public:
 };
 
 TEST(leetcode114, case1) {
-  TreeNode *root = new TreeNode(1);
+  TreeNode* root = new TreeNode(1);
   root->left = new TreeNode(2);
   root->left->left = new TreeNode(3);
   root->left->right = new TreeNode(4);
   root->right = new TreeNode(5);
   root->right->right = new TreeNode(6);
-  Solution s;
+  MyQueue s;
   s.flatten(root);
   EXPECT_EQ(root->val, 1);
   EXPECT_EQ(root->right->val, 2);

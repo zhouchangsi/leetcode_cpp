@@ -5,7 +5,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   vector<int> singleNumber(vector<int>& nums) {
     int n = nums.size();
@@ -30,7 +30,7 @@ class Solution {
 };
 
 TEST(leetcode260, case1) {
-  Solution s;
+  MyQueue s;
   vector<int> nums = {1, 2, 1, 3, 2, 5};
   EXPECT_EQ(s.singleNumber(nums), vector<int>({3, 5}));
 }

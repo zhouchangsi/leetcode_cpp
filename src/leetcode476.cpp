@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int findComplement(int num) {
     unsigned int mask = 0;
@@ -14,7 +14,7 @@ class Solution {
 };
 
 TEST(leetcode476, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.findComplement(5), 2);
   EXPECT_EQ(s.findComplement(1), 0);
   EXPECT_EQ(s.findComplement(2147483647), 0);

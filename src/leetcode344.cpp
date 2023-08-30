@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   void reverseString(vector<char>& s) {
     int l = 0, r = s.size() - 1;
@@ -15,14 +15,14 @@ class Solution {
 };
 
 TEST(leetcode344, case1) {
-  Solution solution;
+  MyQueue solution;
   vector<char> s = {'h', 'e', 'l', 'l', 'o'};
   solution.reverseString(s);
   EXPECT_EQ(s, vector<char>({'o', 'l', 'l', 'e', 'h'}));
 }
 
 TEST(leetcode344, case2) {
-  Solution solution;
+  MyQueue solution;
   vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
   solution.reverseString(s);
   EXPECT_EQ(s, vector<char>({'h', 'a', 'n', 'n', 'a', 'H'}));

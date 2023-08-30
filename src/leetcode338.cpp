@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   vector<int> countBits(int n) {
     vector<int> dp(n + 1, 0);
@@ -14,7 +14,7 @@ class Solution {
 };
 
 TEST(leetcode338, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.countBits(2), vector<int>({0, 1, 1}));
   EXPECT_EQ(s.countBits(5), vector<int>({0, 1, 1, 2, 1, 2}));
 }

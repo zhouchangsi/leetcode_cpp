@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int hammingDistance(int x, int y) {
     int z = x ^ y;
@@ -16,11 +16,11 @@ class Solution {
 };
 
 TEST(leetcode461, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.hammingDistance(1, 4), 2);
 }
 
 TEST(leetcode461, case2) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.hammingDistance(3, 1), 1);
 }

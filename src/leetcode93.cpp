@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   vector<string> restoreIpAddresses(string s) {
     dfs(s, 0, 0);
@@ -41,14 +41,14 @@ class Solution {
 };
 
 TEST(leetcode93, case1) {
-  Solution solution;
+  MyQueue solution;
   string s = "25525511135";
   vector<string> expect = {"255.255.11.135", "255.255.111.35"};
   EXPECT_EQ(solution.restoreIpAddresses(s), expect);
 }
 
 TEST(leetcode93, case2) {
-  Solution solution;
+  MyQueue solution;
   string s = "25525511135";
   vector<string> expect = {};
   EXPECT_EQ(solution.restoreIpAddresses(s), expect);

@@ -1,9 +1,0 @@
-{
-    "version": 4,
-    "vendor": {
-        "conan": {}
-    },
-    "include": [
-        "C:\\Users\\kong\\inbenbox\\code\\algorithm\\cpp\\build\\generators\\CMakePresets.json"
-    ]
-}

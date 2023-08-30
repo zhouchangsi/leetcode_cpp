@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int getSum(int a, int b) {
     while (b != 0) {
@@ -15,7 +15,7 @@ class Solution {
 };
 
 TEST(leetcode371, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.getSum(1, 2), 3);
   EXPECT_EQ(s.getSum(2, 3), 5);
   EXPECT_EQ(s.getSum(3, 4), 7);

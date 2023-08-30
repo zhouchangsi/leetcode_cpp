@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int largestRectangleArea(vector<int>& heights) {
     int ans = 0;
@@ -24,7 +24,7 @@ class Solution {
 };
 
 TEST(leetcode84, 1) {
-  Solution solution;
+  MyQueue solution;
   {
     vector<int> heights = {2, 1, 5, 6, 2, 3};
     int result = solution.largestRectangleArea(heights);

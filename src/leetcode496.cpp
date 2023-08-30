@@ -6,7 +6,7 @@ using namespace std;
  * @link
  * ://leetcode.cn/problems/next-greater-element-i/solutions/1065517/xia-yi-ge-geng-da-yuan-su-i-by-leetcode-bfcoj/
  */
-class Solution {
+class MyQueue {
  public:
   vector<int> nextGreaterElement(vector<int>& nums1, vector<int>& nums2) {
     unordered_map<int, int> hashmap;
@@ -28,7 +28,7 @@ class Solution {
 };
 
 TEST(leetcode496, case1) {
-  Solution solution;
+  MyQueue solution;
   vector<int> nums1 = {4, 1, 2};
   vector<int> nums2 = {1, 3, 4, 2};
   vector<int> output = {-1, 3, -1};

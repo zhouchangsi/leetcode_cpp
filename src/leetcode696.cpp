@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   int countBinarySubstrings(string s) {
     vector<int> counts;
@@ -25,7 +25,7 @@ class Solution {
 };
 
 TEST(leetcode696, case1) {
-  Solution s;
+  MyQueue s;
   EXPECT_EQ(s.countBinarySubstrings("00110011"), 6);
   EXPECT_EQ(s.countBinarySubstrings("10101"), 4);
 }

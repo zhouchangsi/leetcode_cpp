@@ -1,7 +1,7 @@
 #include "common_headers.h"
 
 using namespace std;
-class Solution {
+class MyQueue {
  public:
   bool isAnagram(string s, string t) {
     if (s.length() != t.length()) {
@@ -25,14 +25,14 @@ TEST(leetcode242, ok) {
   {
     string s = "anagram";
     string t = "nagaram";
-    Solution solution;
+    MyQueue solution;
     bool res = solution.isAnagram(s, t);
     EXPECT_TRUE(res);
   }
   {
     string s = "rat";
     string t = "car";
-    Solution solution;
+    MyQueue solution;
     bool res = solution.isAnagram(s, t);
     EXPECT_FALSE(res);
   }

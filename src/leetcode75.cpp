@@ -2,7 +2,7 @@
 
 using namespace std;
 
-class Solution {
+class MyQueue {
  public:
   void sortColors(vector<int>& nums) {
     int n = nums.size();
@@ -28,7 +28,7 @@ class Solution {
 };
 
 TEST(leetcode75, case1) {
-  Solution s;
+  MyQueue s;
   vector<int> nums = {2, 0, 2, 1, 1, 0};
   s.sortColors(nums);
   EXPECT_EQ(nums, vector<int>({0, 0, 1, 1, 2, 2}));
