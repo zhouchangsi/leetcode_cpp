@@ -10,13 +10,13 @@ class Solution {
     int r = matrix[n - 1][n - 1];
     while (l < r) {
       int mid = l + (r - l) / 2;
-      int cnt = 0;
+      int num_less_than_the_mid = 0;
       for (int i = 0; i < n; i++) {
         int pos = upper_bound(matrix[i].begin(), matrix[i].end(), mid) -
                   matrix[i].begin();
-        cnt += pos;
+        num_less_than_the_mid += pos;
       }
-      if (cnt < k) {
+      if (num_less_than_the_mid < k) {
         l = mid + 1;
       } else {
         r = mid;

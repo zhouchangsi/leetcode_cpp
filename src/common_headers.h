@@ -12,6 +12,16 @@
 #include <unordered_set>
 #include <vector>  // IWYU pragma: export
 
+struct TreeNode {
+  int val;
+  TreeNode* left;
+  TreeNode* right;
+  TreeNode() : val(0), left(nullptr), right(nullptr) {}
+  TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+  TreeNode(int x, TreeNode* left, TreeNode* right)
+      : val(x), left(left), right(right) {}
+};
+
 struct ListNode {
   int val;
   ListNode* next;
@@ -31,5 +41,33 @@ class ListTest {
       l2 = l2->next;
     }
     return l1 == nullptr && l2 == nullptr;
+  }
+};
+
+class UnionFindSets {
+ public:
+  std::vector<int> parent;
+
+  UnionFindSets(int n) {
+    parent.reserve(n + 1);
+    for (int i = 1; i <= n; ++i) {
+      parent[i] = i;
+    }
+  }
+
+  int find(int i) {
+    if (parent[i] == i) {
+      return i;
+    }
+    // 路径压缩
+    return parent[i] = find(parent[i]);
+  }
+
+  void merge(int i, int j) {
+    int parent_i = find(i);
+    int parent_j = find(j);
+    if (parent_i != parent_j) {
+      parent[parent_i] = parent_j;
+    }
   }
 };
