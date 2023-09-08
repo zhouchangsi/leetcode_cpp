@@ -2,6 +2,7 @@
  * https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/
  */
 #include "common_headers.h"
+#include "utils/tree_node.hpp"
 
 using namespace std;
 
