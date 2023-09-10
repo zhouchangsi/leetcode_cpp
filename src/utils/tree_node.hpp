@@ -29,39 +29,33 @@ class TreeTest {
   }
 
   static TreeNode* from(std::string str) {
-    std::vector<std::string> vec;
-    std::string tmp;
-    for (int i = 0; i < str.size(); i++) {
-      if (str[i] == ',') {
-        vec.push_back(tmp);
-        tmp.clear();
-      } else {
-        tmp += str[i];
+    auto split = [](const std::string& s, char delim) {
+      std::vector<std::string> elems;
+      std::stringstream ss(s);
+      std::string item;
+      while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
       }
-    }
-    if (!tmp.empty()) {
-      vec.push_back(tmp);
-    }
+      return elems;
+    };
+    std::vector<std::string> vec = split(str, ',');
     if (vec.empty()) {
       return nullptr;
     }
     TreeNode* root = new TreeNode(std::stoi(vec[0]));
     std::queue<TreeNode*> q;
     q.push(root);
-    int i = 1;
-    while (!q.empty()) {
+    for (int i = 1; i < vec.size(); i += 2) {
       TreeNode* node = q.front();
       q.pop();
-      if (i < vec.size() && vec[i] != "null") {
+      if (vec[i] != "null") {
         node->left = new TreeNode(std::stoi(vec[i]));
         q.push(node->left);
       }
-      i++;
-      if (i < vec.size() && vec[i] != "null") {
-        node->right = new TreeNode(std::stoi(vec[i]));
+      if (i + 1 < vec.size() && vec[i + 1] != "null") {
+        node->right = new TreeNode(std::stoi(vec[i + 1]));
         q.push(node->right);
       }
-      i++;
     }
     return root;
   }
@@ -86,6 +80,20 @@ class TreeTest {
       }
     }
     return str;
+  }
+
+  /**
+   * print tree using "_", "/", "\".
+   *         _______6______
+   *       /                \
+   *   ___2__             ___8__
+   *  /      \           /      \
+   * 0        4         7        9
+   *         /  \
+   *        3   5
+   */
+  static void print(TreeNode* root) {
+    // TODO
   }
 
   static int count_nodes(TreeNode* root) {
