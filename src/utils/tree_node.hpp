@@ -1,6 +1,10 @@
 #pragma once
 
+#include <iostream>
 #include <queue>
+#include <sstream>
+#include <stack>
+#include <string>
 #include <vector>
 
 struct TreeNode {
@@ -11,21 +15,93 @@ struct TreeNode {
   TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
   TreeNode(int x, TreeNode* left, TreeNode* right)
       : val(x), left(left), right(right) {}
+
+  int depth() {
+    std::stack<TreeNode*> nodes;
+    std::stack<int> depths;
+    nodes.push(this);
+    depths.push(1);
+    int max_depth = 0;
+    while (!nodes.empty()) {
+      TreeNode* node = nodes.top();
+      nodes.pop();
+      int _depth = depths.top();
+      depths.pop();
+      max_depth = std::max(max_depth, _depth);
+      if (node->left != nullptr) {
+        nodes.push(node->left);
+        depths.push(_depth + 1);
+      }
+      if (node->right != nullptr) {
+        nodes.push(node->right);
+        depths.push(_depth + 1);
+      }
+    }
+    return max_depth;
+  }
+
+  bool equals(TreeNode* node) {
+    std::stack<TreeNode*> nodes;
+    std::stack<TreeNode*> nodes2;
+    nodes.push(this);
+    nodes2.push(node);
+    while (!nodes.empty()) {
+      TreeNode* node = nodes.top();
+      TreeNode* node2 = nodes2.top();
+      nodes.pop();
+      nodes2.pop();
+      if (node->val != node2->val) {
+        return false;
+      }
+      if (node->left != nullptr) {
+        nodes.push(node->left);
+      }
+      if (node->right != nullptr) {
+        nodes.push(node->right);
+      }
+      if (node2->left != nullptr) {
+        nodes2.push(node2->left);
+      }
+      if (node2->right != nullptr) {
+        nodes2.push(node2->right);
+      }
+    }
+    return true;
+  }
+
+  int size() {
+    std::stack<TreeNode*> nodes;
+    nodes.push(this);
+    int _size = 0;
+    while (!nodes.empty()) {
+      TreeNode* node = nodes.top();
+      nodes.pop();
+      _size++;
+      if (node->left != nullptr) {
+        nodes.push(node->left);
+      }
+      if (node->right != nullptr) {
+        nodes.push(node->right);
+      }
+    }
+    return _size;
+  }
 };
 
 class TreeTest {
  public:
-  static bool is_equals(TreeNode* t1, TreeNode* t2) {
-    if (t1 == nullptr && t2 == nullptr) {
-      return true;
+  static int count_nodes(TreeNode* root) {
+    if (root == nullptr) {
+      return 0;
     }
-    if (t1 == nullptr || t2 == nullptr) {
-      return false;
+    return 1 + count_nodes(root->left) + count_nodes(root->right);
+  }
+
+  static int depth(TreeNode* root) {
+    if (root == nullptr) {
+      return 0;
     }
-    if (t1->val != t2->val) {
-      return false;
-    }
-    return is_equals(t1->left, t2->left) && is_equals(t1->right, t2->right);
+    return 1 + std::max(depth(root->left), depth(root->right));
   }
 
   static TreeNode* from(std::string str) {
@@ -60,6 +136,47 @@ class TreeTest {
     return root;
   }
 
+  static bool is_equals(TreeNode* t1, TreeNode* t2) {
+    if (t1 == nullptr && t2 == nullptr) {
+      return true;
+    }
+    if (t1 == nullptr || t2 == nullptr) {
+      return false;
+    }
+    if (t1->val != t2->val) {
+      return false;
+    }
+    return is_equals(t1->left, t2->left) && is_equals(t1->right, t2->right);
+  }
+
+  /**
+   * print tree and using "_" to connect the node
+   *    ____6____
+   *  __2__   __8__
+   * _0_ _4_ _7_ _9_
+   * # # 3 5 # # # #
+   *
+   */
+  static void print(TreeNode* root) {
+    // TODO
+    auto calc_number_length = [](int num) -> int {
+      int len = 0;
+      while (num) {
+        num /= 10;
+        len++;
+      }
+      return len;
+    };
+
+    auto repeat_string = [](std::string str, int n) -> std::string {
+      std::string res;
+      for (int i = 0; i < n; i++) {
+        res += str;
+      }
+      return res;
+    };
+  }
+
   static std::string to_string(TreeNode* root) {
     int n = count_nodes(root);
     std::string str;
@@ -81,30 +198,4 @@ class TreeTest {
     }
     return str;
   }
-
-  /**
-   * print tree using "_", "/", "\".
-   *         _______6______
-   *       /                \
-   *   ___2__             ___8__
-   *  /      \           /      \
-   * 0        4         7        9
-   *         /  \
-   *        3   5
-   */
-  static void print(TreeNode* root) {
-    // TODO
-  }
-
-  static int count_nodes(TreeNode* root) {
-    if (root == nullptr) {
-      return 0;
-    }
-    return 1 + count_nodes(root->left) + count_nodes(root->right);
-  }
 };
-
-// TEST(tree_node, case1) {
-//   TreeNode* root = TreeTest::from("3,9,20,null,null,15,7");
-//   EXPECT_EQ(TreeTest::to_string(root), "3,9,20,null,null,15,7");
-// }

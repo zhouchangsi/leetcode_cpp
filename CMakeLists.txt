@@ -18,4 +18,6 @@ add_executable(leetcode ${SOURCES})
 
 target_link_libraries(leetcode PUBLIC GTest::GTest GTest::Main)
 
-add_test(AllTestsInMain leetcode)
+add_test(NAME leetcode COMMAND leetcode)
+# include(GoogleTest)
+# gtest_discover_tests(leetcode)
