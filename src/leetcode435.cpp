@@ -4,32 +4,32 @@ using namespace std;
 
 class Solution {
  public:
-  string frequencySort(string s) {
-    unordered_map<char, int> mp;
-    int length = s.length();
-    for (auto& ch : s) {
-      mp[ch]++;
+    int eraseOverlapIntervals(vector<vector<int>>& intervals) {
+        int n = intervals.size();
+        if (n == 0) {
+        return 0;
+        }
+        sort(intervals.begin(), intervals.end(),
+             [](const vector<int>& a, const vector<int>& b) {
+             return a[1] < b[1];
+             });
+        int right = intervals[0][1];
+        int ans = 1;
+        for (int i = 1; i < n; i++) {
+        if (intervals[i][0] >= right) {
+            ans++;
+            right = intervals[i][1];
+        }
+        }
+        return n - ans;
     }
-    vector<pair<char, int>> vec;
-    for (auto& it : mp) {
-      vec.emplace_back(it);
-    }
-    sort(vec.begin(), vec.end(),
-         [](const pair<char, int>& a, const pair<char, int>& b) {
-           return a.second > b.second;
-         });
-    string ret;
-    for (auto& [ch, num] : vec) {
-      for (int i = 0; i < num; i++) {
-        ret.push_back(ch);
-      }
-    }
-    return ret;
-  }
 };
 
 TEST(leetcode435, solution) {
-  EXPECT_EQ(Solution().frequencySort("tree"), "eert");
-  EXPECT_EQ(Solution().frequencySort("cccaaa"), "aaaccc");
-  EXPECT_EQ(Solution().frequencySort("Aabb"), "bbAa");
+    vector<vector<int>> intervals = {{1, 2}, {2, 3}, {3, 4}, {1, 3}};
+    EXPECT_EQ(Solution().eraseOverlapIntervals(intervals), 1);
+    intervals = {{1, 2}, {1, 2}, {1, 2}};
+    EXPECT_EQ(Solution().eraseOverlapIntervals(intervals), 2);
+    intervals = {{1, 2}, {2, 3}};
+    EXPECT_EQ(Solution().eraseOverlapIntervals(intervals), 0);
 }
