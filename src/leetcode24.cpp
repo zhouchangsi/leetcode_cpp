@@ -1,5 +1,5 @@
 #include "common_headers.h"
-#include "utils/list_node.hpp"
+#include "data_structure/list_node.hpp"
 
 using namespace std;
 

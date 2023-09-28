@@ -1,5 +1,5 @@
 #include "common_headers.h"
-#include "utils/union_find_sets.hpp"
+#include "data_structure/union_find_sets.hpp"
 
 using namespace std;
 

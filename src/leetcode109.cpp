@@ -1,6 +1,6 @@
 #include "common_headers.h"
-#include "utils/list_node.hpp"
-#include "utils/tree_node.hpp"
+#include "data_structure/list_node.hpp"
+#include "data_structure/tree_node.hpp"
 
 using namespace std;
 
