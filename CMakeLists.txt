@@ -15,4 +15,6 @@ file(GLOB_RECURSE SOURCES src/*.cpp src/*.h)
 add_executable(leetcode ${SOURCES})
 find_package(GTest CONFIG REQUIRED)
 target_link_libraries(leetcode PUBLIC GTest::gtest GTest::gtest_main)
-add_test(NAME leetcode COMMAND leetcode)
+
+include(GoogleTest)
+gtest_discover_tests(leetcode)
