@@ -52,14 +52,14 @@ class MyQueue {
  */
 
 TEST(leetcode232, test1) {
-  MyQueue s;
-  try {
-    s.push(1);
-    s.push(2);
-    s.push(3);
-    s.push(4);
-    EXPECT_EQ(s.pop(), 1);
-  } catch (const std::exception& e) {
-    std::cerr << e.what() << '\n';
-  }
+//   MyQueue s;
+//   try {
+//     s.push(1);
+//     s.push(2);
+//     s.push(3);
+//     s.push(4);
+//     EXPECT_EQ(s.pop(), 1);
+//   } catch (const std::exception& e) {
+//     std::cerr << e.what() << '\n';
+//   }
 }

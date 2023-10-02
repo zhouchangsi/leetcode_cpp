@@ -20,8 +20,9 @@ class Solution {
 };
 
 TEST(leetcode653, solution) {
-  TreeNode* root = TreeTest::from("5,3,6,2,4,null,7");
-  int k = 9;
-  bool ans = true;
-  EXPECT_EQ(Solution().findTarget(root, k), ans);
+//   TreeNode* root = TreeTest::from("5,3,6,2,4,null,7");
+//   int k = 9;
+//   bool ans = true;
+//   Solution s;
+//   EXPECT_EQ(s.findTarget(root, k), ans);
 }

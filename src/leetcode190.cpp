@@ -23,8 +23,7 @@ class MyQueue {
   }
 };
 
-TEST(leetcode190, case1) {
-  MyQueue s;
+TEST(leetcode190, solution) {
   EXPECT_EQ(1, 1);
   //   EXPECT_EQ(s.reverseBits(0b00000010100101000001111010011100),
   //   0b00111001011110000010100101000000);

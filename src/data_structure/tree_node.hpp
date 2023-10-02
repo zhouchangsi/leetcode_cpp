@@ -16,29 +16,7 @@ struct TreeNode {
   TreeNode(int x, TreeNode* left, TreeNode* right)
       : val(x), left(left), right(right) {}
 
-  int depth() {
-    std::stack<TreeNode*> nodes;
-    std::stack<int> depths;
-    nodes.push(this);
-    depths.push(1);
-    int max_depth = 0;
-    while (!nodes.empty()) {
-      TreeNode* node = nodes.top();
-      nodes.pop();
-      int _depth = depths.top();
-      depths.pop();
-      max_depth = std::max(max_depth, _depth);
-      if (node->left != nullptr) {
-        nodes.push(node->left);
-        depths.push(_depth + 1);
-      }
-      if (node->right != nullptr) {
-        nodes.push(node->right);
-        depths.push(_depth + 1);
-      }
-    }
-    return max_depth;
-  }
+  int depth();
 
   bool equals(TreeNode* node) {
     std::stack<TreeNode*> nodes;
@@ -69,23 +47,8 @@ struct TreeNode {
     return true;
   }
 
-  int size() {
-    std::stack<TreeNode*> nodes;
-    nodes.push(this);
-    int _size = 0;
-    while (!nodes.empty()) {
-      TreeNode* node = nodes.top();
-      nodes.pop();
-      _size++;
-      if (node->left != nullptr) {
-        nodes.push(node->left);
-      }
-      if (node->right != nullptr) {
-        nodes.push(node->right);
-      }
-    }
-    return _size;
-  }
+  bool operator==(TreeNode* node) { return equals(node); }
+  int size();
 };
 
 class TreeTest {
@@ -104,34 +67,39 @@ class TreeTest {
     return 1 + std::max(depth(root->left), depth(root->right));
   }
 
+  /**
+   * @brief
+   * TreeTest::from("5,4,5,1,1,5");
+   * @param str
+   * @return TreeNode*
+   */
   static TreeNode* from(std::string str) {
-    auto split = [](const std::string& s, char delim) {
-      std::vector<std::string> items;
-      std::stringstream string_stream(s);
-      std::string item;
-      while (std::getline(string_stream, item, delim)) {
-        items.push_back(item);
-      }
-      return items;
-    };
-    std::vector<std::string> nodes = split(str, ',');
-    if (nodes.empty()) {
+    std::vector<std::string> vec;
+    std::stringstream ss(str);
+    std::string item;
+    while (getline(ss, item, ',')) {
+      vec.push_back(item);
+    }
+    if (vec.size() == 0) {
       return nullptr;
     }
-    TreeNode* root = new TreeNode(std::stoi(nodes[0]));
-    std::queue<TreeNode*> queue;
-    queue.push(root);
-    for (int i = 1; i < nodes.size(); i += 2) {
-      TreeNode* node = queue.front();
-      queue.pop();
-      if (nodes[i] != "null") {
-        node->left = new TreeNode(std::stoi(nodes[i]));
-        queue.push(node->left);
+    TreeNode* root = new TreeNode(std::stoi(vec[0]));
+    std::queue<TreeNode*> q;
+    q.push(root);
+    int i = 1;
+    while (!q.empty()) {
+      TreeNode* node = q.front();
+      q.pop();
+      if (i < vec.size() && vec[i] != "null") {
+        node->left = new TreeNode(std::stoi(vec[i]));
+        q.push(node->left);
       }
-      if (i + 1 < nodes.size() && nodes[i + 1] != "null") {
-        node->right = new TreeNode(std::stoi(nodes[i + 1]));
-        queue.push(node->right);
+      i++;
+      if (i < vec.size() && vec[i] != "null") {
+        node->right = new TreeNode(std::stoi(vec[i]));
+        q.push(node->right);
       }
+      i++;
     }
     return root;
   }
