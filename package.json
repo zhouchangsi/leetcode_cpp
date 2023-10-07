@@ -1,0 +1,15 @@
+{
+    "name": "algorithm",
+    "version": "1.0.0",
+    "main": "index.js",
+    "scripts": {
+        "build:leetcode_solutions": "cmake --build build --config Debug --target leetcode_solutions",
+        "build:lib_data_structure": "cmake --build build --config Debug --target lib_data_structure",
+        "build:lib_data_structure_test": "cmake --build build --config Debug --target lib_data_structure_test",
+        "start:leetcode_solutions": "bin\\Debug\\leetcode_solutions.exe",
+        "start:lib_data_structure": "bin\\Debug\\lib_data_structure.exe",
+        "start:lib_data_structure_test": "bin\\Debug\\lib_data_structure_test.exe",
+        "test:lib_data_structure": "nodemon -e h,hpp,cc,cpp --exec \"npm run build:lib_data_structure_test && npm run start:lib_data_structure_test\"",
+        "license": "ISC"
+    }
+}

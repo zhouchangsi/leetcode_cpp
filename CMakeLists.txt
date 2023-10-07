@@ -9,12 +9,5 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 project(algorithm CXX)
 
-enable_testing()
-
-file(GLOB_RECURSE SOURCES src/*.cpp src/*.h)
-add_executable(leetcode ${SOURCES})
-find_package(GTest CONFIG REQUIRED)
-target_link_libraries(leetcode PUBLIC GTest::gtest GTest::gtest_main)
-
-include(GoogleTest)
-gtest_discover_tests(leetcode)
+add_subdirectory(src/data_structure)
+add_subdirectory(src/leetcode_solutions)

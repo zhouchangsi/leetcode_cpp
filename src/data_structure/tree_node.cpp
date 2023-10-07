@@ -1,6 +1,49 @@
-#include "tree_node.hpp"
+#include "tree_node.h"
+
+TreeNode::TreeNode(std::string str) {
+  val = 0, left = nullptr, right = nullptr;
+}
+
+TreeNode::TreeNode(std::vector<std::optional<int>> nodes) {
+  if (nodes.size() == 0 || !nodes[0].has_value()) {
+    val = 0, left = nullptr, right = nullptr;
+    return;
+  }
+  val = nodes[0].value();
+  std::queue<TreeNode*> q;
+  q.push(this);
+  int i = 1;
+  while (!q.empty() && i < nodes.size()) {
+    TreeNode* node = q.front();
+    q.pop();
+    if (nodes[i].has_value()) {
+      node->left = new TreeNode(nodes[i].value());
+      q.push(node->left);
+    }
+    i++;
+    if (i >= nodes.size()) {
+      break;
+    }
+    if (nodes[i].has_value()) {
+      node->right = new TreeNode(nodes[i].value());
+      q.push(node->right);
+    }
+    i++;
+  }
+}
+
+TreeNode::~TreeNode() {
+  std::cout << "destructor ";
+  if (left != nullptr) {
+    delete left;
+  }
+  if (right != nullptr) {
+    delete right;
+  }
+}
 
 int TreeNode::depth() {
+  std::cout << "depth ";
   std::stack<TreeNode*> nodes;
   std::stack<int> depths;
   nodes.push(this);
@@ -22,6 +65,36 @@ int TreeNode::depth() {
     }
   }
   return max_depth;
+}
+
+bool TreeNode::equals(TreeNode* node) {
+  std::cout << "equals ";
+  std::stack<TreeNode*> a;
+  std::stack<TreeNode*> b;
+  a.push(this);
+  b.push(node);
+  while (!a.empty()) {
+    TreeNode* this_node = a.top();
+    TreeNode* other_node = b.top();
+    a.pop();
+    b.pop();
+    if (this_node->val != other_node->val) {
+      return false;
+    }
+    if (this_node->left != nullptr) {
+      a.push(this_node->left);
+    }
+    if (this_node->right != nullptr) {
+      a.push(this_node->right);
+    }
+    if (other_node->left != nullptr) {
+      b.push(other_node->left);
+    }
+    if (other_node->right != nullptr) {
+      b.push(other_node->right);
+    }
+  }
+  return true;
 }
 
 int TreeNode::size() {
