@@ -1,12 +1,11 @@
 #include "tree_node.h"
+#include "helper.h"
 
-TreeNode::TreeNode(std::string str) {
-  val = 0, left = nullptr, right = nullptr;
-}
+TreeNode::TreeNode(std::string str)
+    : TreeNode(leetcode::parse_leetcode_list(str)) {}
 
-TreeNode::TreeNode(std::vector<std::optional<int>> nodes) {
+TreeNode::TreeNode(std::vector<std::optional<int>> nodes) : TreeNode() {
   if (nodes.size() == 0 || !nodes[0].has_value()) {
-    val = 0, left = nullptr, right = nullptr;
     return;
   }
   val = nodes[0].value();
@@ -33,17 +32,10 @@ TreeNode::TreeNode(std::vector<std::optional<int>> nodes) {
 }
 
 TreeNode::~TreeNode() {
-  std::cout << "destructor ";
-  if (left != nullptr) {
-    delete left;
-  }
-  if (right != nullptr) {
-    delete right;
-  }
+  delete left, right;
 }
 
 int TreeNode::depth() {
-  std::cout << "depth ";
   std::stack<TreeNode*> nodes;
   std::stack<int> depths;
   nodes.push(this);
@@ -68,7 +60,6 @@ int TreeNode::depth() {
 }
 
 bool TreeNode::equals(TreeNode* node) {
-  std::cout << "equals ";
   std::stack<TreeNode*> a;
   std::stack<TreeNode*> b;
   a.push(this);

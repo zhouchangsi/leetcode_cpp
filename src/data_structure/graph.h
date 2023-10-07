@@ -9,6 +9,11 @@ using std::set;
 using std::string;
 using std::vector;
 
+namespace leetcode {
+class Node;
+class Graph;
+}  // namespace leetcode
+
 // [[2,4],[1,3],[2,4],[1,3]]
 class Node {
  public:

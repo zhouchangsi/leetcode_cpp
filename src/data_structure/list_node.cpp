@@ -1,21 +1,17 @@
 #include "list_node.h"
+#include "helper.h"
 
 ListNode::ListNode(std::string str) {
-  std::stringstream ss(str);
-  std::string token;
-  getline(ss, token, ',');
-  val = std::stoi(token);
+  auto nums = leetcode::parse_leetcode_list(str);
   ListNode* node = this;
-  while (getline(ss, token, ',')) {
-    node->next = new ListNode(std::stoi(token));
-    node = node->next;
+  for (auto num : nums) {
+    node->val = num.value();
+    node = (node->next = new ListNode());
   }
 }
 
 ListNode::~ListNode() {
-  if (next != nullptr) {
-    delete next;
-  }
+  delete next;
 }
 
 bool ListNode::equals(ListNode* node) {

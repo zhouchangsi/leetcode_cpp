@@ -1,7 +1,7 @@
 #include "union_find_sets.h"
 
 UnionFindSets::UnionFindSets(int n) {
-  parent.reserve(n + 1);
+  parent.assign(n + 1, 0);
   for (int i = 1; i <= n; ++i) {
     parent[i] = i;
   }
