@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 // class MyStack {
 //  private:
@@ -79,7 +81,7 @@ class MyStack {
  * bool param_4 = obj->empty();
  */
 
-TEST(leetcode225, case1) {
+TEST(leetcode225, solution) {
   MyStack s;
   s.push(1);
   s.push(2);

@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -20,7 +22,7 @@ class Solution {
   }
 };
 
-TEST(leetcode485, case1) {
+TEST(leetcode485, solution) {
   Solution s;
   vector<int> nums = {1, 1, 0, 1, 1, 1};
   EXPECT_EQ(s.findMaxConsecutiveOnes(nums), 3);

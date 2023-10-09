@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -32,7 +35,7 @@ class Solution {
   }
 };
 
-TEST(leetcode679, case1) {
+TEST(leetcode679, solution) {
   Solution s;
   vector<int> nums = {1, 2, 2, 3, 1};
   EXPECT_EQ(s.findShortestSubArray(nums), 2);

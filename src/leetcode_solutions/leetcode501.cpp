@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -39,8 +40,8 @@ class Solution {
   }
 };
 
-TEST(leetcode501, case1) {
-  TreeNode* root = new TreeNode("1,null,2,2");
+TEST(leetcode501, solution) {
+  TreeNode* root = create_tree("1,null,2,2");
   vector<int> expect = {2};
   EXPECT_EQ(Solution().findMode(root), expect);
   delete root;

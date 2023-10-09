@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -33,9 +34,9 @@ class Solution {
   }
 };
 
-TEST(leetcode637, case1) {
+TEST(leetcode637, solution) {
   Solution solution;
-  TreeNode* root = new TreeNode("3,9,20,null,null,15,7");
+  TreeNode* root = create_tree("3,9,20,null,null,15,7");
   vector<double> result = solution.averageOfLevels(root);
   vector<double> expected = {3, 14.5, 11};
   for (int i = 0; i < expected.size(); i++) {

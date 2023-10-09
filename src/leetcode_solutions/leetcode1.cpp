@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -17,10 +19,9 @@ class Solution {
   }
 };
 
-TEST(leetcode1, case1) {
-  Solution s;
+TEST(leetcode1, solution) {
   vector<int> nums = {2, 7, 11, 15};
   int target = 9;
   vector<int> expect = {0, 1};
-  EXPECT_EQ(s.twoSum(nums, target), expect);
+  EXPECT_EQ(Solution().twoSum(nums, target), expect);
 }

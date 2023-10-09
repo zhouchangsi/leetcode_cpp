@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -20,7 +23,7 @@ class Solution {
   }
 };
 
-TEST(leetcode205, case1) {
+TEST(leetcode205, solution) {
   Solution s;
   EXPECT_EQ(s.isIsomorphic("egg", "add"), true);
   EXPECT_EQ(s.isIsomorphic("foo", "bar"), false);

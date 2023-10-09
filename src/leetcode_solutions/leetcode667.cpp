@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
 public:
@@ -19,7 +22,7 @@ public:
     }
 };
 
-TEST(leetcode667, case1) {
+TEST(leetcode667, solution) {
   Solution s;
   EXPECT_EQ(s.constructArray(3, 1), vector<int>({1, 2, 3}));
   EXPECT_EQ(s.constructArray(3, 2), vector<int>({1, 3, 2}));

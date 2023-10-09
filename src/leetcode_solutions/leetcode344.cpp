@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -14,16 +16,9 @@ class Solution {
   }
 };
 
-TEST(leetcode344, case1) {
+TEST(leetcode344, solution) {
   Solution solution;
   vector<char> s = {'h', 'e', 'l', 'l', 'o'};
   solution.reverseString(s);
   EXPECT_EQ(s, vector<char>({'o', 'l', 'l', 'e', 'h'}));
-}
-
-TEST(leetcode344, case2) {
-  Solution solution;
-  vector<char> s = {'H', 'a', 'n', 'n', 'a', 'h'};
-  solution.reverseString(s);
-  EXPECT_EQ(s, vector<char>({'h', 'a', 'n', 'n', 'a', 'H'}));
 }

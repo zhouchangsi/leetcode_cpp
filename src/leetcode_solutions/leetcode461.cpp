@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -15,7 +18,7 @@ class Solution {
   }
 };
 
-TEST(leetcode461, case1) {
+TEST(leetcode461, solution) {
   Solution s;
   EXPECT_EQ(s.hammingDistance(1, 4), 2);
 }

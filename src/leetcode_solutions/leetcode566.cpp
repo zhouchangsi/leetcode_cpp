@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -21,7 +23,7 @@ class Solution {
   }
 };
 
-TEST(leetcode566, case1) {
+TEST(leetcode566, solution) {
   Solution s;
   vector<vector<int>> mat = {{1, 2}, {3, 4}};
   vector<vector<int>> res = {{1, 2, 3, 4}};

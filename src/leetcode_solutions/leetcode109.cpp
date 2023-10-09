@@ -1,8 +1,9 @@
-#include "common_headers.h"
-#include "list_node.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -25,9 +26,9 @@ class Solution {
 };
 
 TEST(leetcode109, solution) {
-  ListNode* head = new ListNode("-10, -3, 0, 5, 9");
-  TreeNode* expect = new TreeNode("0,-3,9,-10,null,5");
+  ListNode* head = create_list("-10, -3, 0, 5, 9");
+  TreeNode* expect = create_tree("0,-3,9,-10,null,5");
   TreeNode* result = Solution().sortedListToBST(head);
-  EXPECT_TRUE(result->equals(expect));
+  EXPECT_TRUE(is_same_tree(result, expect));
   delete result, expect;
 }

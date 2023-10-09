@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -30,7 +31,7 @@ class Solution {
 TEST(leetcode144, solution) {
   Solution solution;
   {
-    TreeNode* root = new TreeNode("1,null,2,3");
+    TreeNode* root = create_tree("1,null,2,3");
     vector<int> result = solution.preorderTraversal(root);
     vector<int> expected = {1, 2, 3};
     EXPECT_EQ(result, expected);

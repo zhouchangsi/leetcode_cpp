@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -23,7 +25,7 @@ class Solution {
   }
 };
 
-TEST(leetcode409, case1) {
+TEST(leetcode409, solution) {
   Solution solution;
   ASSERT_EQ(solution.longestPalindrome("abccccdd"), 7);
   ASSERT_EQ(solution.longestPalindrome("a"), 1);

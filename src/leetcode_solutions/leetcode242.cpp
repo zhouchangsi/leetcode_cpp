@@ -1,4 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
+
+using namespace std;
+using namespace leetcode;
+
 
 using namespace std;
 class Solution {

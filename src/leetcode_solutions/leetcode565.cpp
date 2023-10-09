@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -21,7 +23,7 @@ class Solution {
   }
 };
 
-TEST(leetcode565, case1) {
+TEST(leetcode565, solution) {
   Solution s;
   vector<int> nums = {5, 4, 0, 3, 1, 6, 2};
   EXPECT_EQ(s.arrayNesting(nums), 4);

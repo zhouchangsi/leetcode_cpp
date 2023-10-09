@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -16,7 +19,7 @@ class Solution {
   }
 };
 
-TEST(leetcode217, case1) {
+TEST(leetcode217, solution) {
   Solution s;
   vector<int> nums = {1, 2, 3, 1};
   EXPECT_EQ(s.containsDuplicate(nums), true);

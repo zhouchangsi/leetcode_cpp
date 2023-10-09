@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -21,7 +23,8 @@ class Solution {
 };
 
 TEST(leetcode633, solution) {
-  EXPECT_TRUE(Solution().judgeSquareSum(5));
-  EXPECT_FALSE(Solution().judgeSquareSum(3));
-  EXPECT_FALSE(Solution().judgeSquareSum(2147482647));
+  Solution s;
+  EXPECT_TRUE(s.judgeSquareSum(5));
+  EXPECT_FALSE(s.judgeSquareSum(3));
+  EXPECT_FALSE(s.judgeSquareSum(2147482647));
 }

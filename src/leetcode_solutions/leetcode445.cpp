@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "list_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -53,12 +54,12 @@ class Solution {
   }
 };
 
-TEST(leetcode445, case1) {
+TEST(leetcode445, solution) {
   Solution my_queue;
-  ListNode* l1 = new ListNode("7, 2, 4, 3");
-  ListNode* l2 = new ListNode("5, 6, 4");
+  ListNode* l1 = create_list("7, 2, 4, 3");
+  ListNode* l2 = create_list("5, 6, 4");
   ListNode* result = my_queue.addTwoNumbers(l1, l2);
-  ListNode* expect = new ListNode("7,8,0,7");
-  EXPECT_TRUE(result->equals(expect));
+  ListNode* expect = create_list("7,8,0,7");
+  EXPECT_TRUE(is_same_list(result, expect));
   delete result, expect;
 }

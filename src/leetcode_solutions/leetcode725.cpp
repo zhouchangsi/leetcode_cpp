@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "list_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -30,9 +31,9 @@ class Solution {
   }
 };
 
-TEST(leetcode725, case1) {
+TEST(leetcode725, solution) {
   Solution solution;
-  ListNode* list = new ListNode("1,2,3");
+  ListNode* list = create_list("1,2,3");
   vector<ListNode*> result = solution.splitListToParts(list, 2);
   vector<ListNode*> expected = {
       new ListNode(7), new ListNode(2, new ListNode(4, new ListNode(3)))};

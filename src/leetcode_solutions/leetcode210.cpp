@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -42,7 +45,7 @@ class Solution {
   }
 };
 
-TEST(leetcode210, case1) {
+TEST(leetcode210, solution) {
   Solution solution;
   vector<vector<int>> prerequisites = {{1, 0}};
   vector<int> ans = solution.findOrder(2, prerequisites);

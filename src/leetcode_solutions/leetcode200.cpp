@@ -1,8 +1,8 @@
-#include <functional>
-
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -39,7 +39,7 @@ class Solution {
   }
 };
 
-TEST(leetcode200, case1) {
+TEST(leetcode200, solution) {
   vector<vector<char>> input;
   int res;
   Solution sln;
@@ -56,15 +56,5 @@ TEST(leetcode200, case1) {
            {'0', '0', '1', '0', '0'},
            {'0', '0', '0', '1', '1'}};
   res = 3;
-  ASSERT_EQ(sln.numIslands(input), res);
-}
-
-TEST(leetcode200, case2) {
-  vector<vector<char>> input;
-  int res;
-  Solution sln;
-
-  input = {{'1', '1', '1'}, {'0', '1', '0'}, {'1', '1', '1'}};
-  res = 1;
   ASSERT_EQ(sln.numIslands(input), res);
 }

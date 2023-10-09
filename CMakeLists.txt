@@ -9,5 +9,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 project(algorithm CXX)
 
-add_subdirectory(src/data_structure)
+include_directories(src/leetcode)
+add_subdirectory(src/leetcode)
 add_subdirectory(src/leetcode_solutions)

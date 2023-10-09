@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -26,7 +28,7 @@ class Solution {
   }
 };
 
-TEST(leetcode378, case1) {
+TEST(leetcode378, solution) {
   Solution s;
   vector<vector<int>> matrix = {{1, 5, 9}, {10, 11, 13}, {12, 13, 15}};
   EXPECT_EQ(s.kthSmallest(matrix, 8), 13);

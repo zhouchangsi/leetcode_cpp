@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "list_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
   // 定义：输入以 head 开头的单链表，将这个单链表中的每两个元素翻转，
@@ -23,11 +24,11 @@ class Solution {
   }
 };
 
-TEST(leetcode24, case1) {
+TEST(leetcode24, solution) {
   Solution solution;
-  auto head = new ListNode("1,2,3,4");
+  auto head = create_list("1,2,3,4");
   auto result = solution.swapPairs(head);
-  auto expect = new ListNode("2,1,4,3");
-  EXPECT_TRUE(result->equals(expect));
+  auto expect = create_list("2,1,4,3");
+  EXPECT_TRUE(is_same_list(result, expect));
   delete result, expect;
 }

@@ -1,10 +1,9 @@
-/**
- * https://leetcode.cn/problems/missing-number/description/
- */
-#include <vector>
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -17,7 +16,7 @@ class Solution {
   }
 };
 
-TEST(leetcode268, case1) {
+TEST(leetcode268, solution) {
   Solution s;
   vector<int> nums = {3, 0, 1};
   EXPECT_EQ(s.missingNumber(nums), 2);

@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -25,7 +26,7 @@ class Solution {
 };
 
 TEST(leetcode530, solution) {
-  TreeNode* root = new TreeNode("1,null,3,2");
+  TreeNode* root = create_tree("1,null,3,2");
   int ans = 1;
   EXPECT_EQ(Solution().getMinimumDifference(root), ans);
   delete root;

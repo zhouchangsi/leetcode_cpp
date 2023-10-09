@@ -1,5 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
+
+using namespace std;
+using namespace leetcode;
 
 // class Solution {
 //  public:
@@ -53,9 +56,9 @@ class Solution {
   }
 };
 
-TEST(leetcode671, case1) {
+TEST(leetcode671, solution) {
   Solution s;
-  auto root = new TreeNode("2,2,5,null,null,5,7");
+  auto root = create_tree("2,2,5,null,null,5,7");
   EXPECT_EQ(s.findSecondMinimumValue(root), 5);
   delete root;
 }

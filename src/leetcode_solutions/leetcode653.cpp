@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -20,9 +21,9 @@ class Solution {
 };
 
 TEST(leetcode653, solution) {
-//   TreeNode* root = new TreeNode("5,3,6,2,4,null,7");
-//   int k = 9;
-//   bool ans = true;
-//   Solution s;
-//   EXPECT_EQ(s.findTarget(root, k), ans);
+  TreeNode* root = create_tree("5,3,6,2,4,null,7");
+  int k = 9;
+  bool ans = true;
+  Solution s;
+  EXPECT_EQ(s.findTarget(root, k), ans);
 }

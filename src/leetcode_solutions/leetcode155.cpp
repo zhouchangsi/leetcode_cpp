@@ -1,6 +1,9 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class MinStack {
   stack<int> x_stack;
@@ -24,7 +27,7 @@ class MinStack {
   int getMin() { return min_stack.top(); }
 };
 
-TEST(leetcode155, case1) {
+TEST(leetcode155, solution) {
   MinStack obj;
   obj.push(-2);
   obj.push(0);

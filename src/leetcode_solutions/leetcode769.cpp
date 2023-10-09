@@ -1,4 +1,5 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+// #include "leetcode.h"
 
 using namespace std;
 
@@ -16,7 +17,7 @@ class Solution {
   }
 };
 
-TEST(leetcode769, case1) {
+TEST(leetcode769, solution) {
   Solution solution;
   vector<int> vec = {4, 3, 2, 1, 0};
   int res = solution.maxChunksToSorted(vec);

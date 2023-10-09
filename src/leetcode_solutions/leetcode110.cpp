@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -25,9 +26,9 @@ class Solution {
   }
 };
 
-TEST(leetcode110, case1) {
+TEST(leetcode110, solution) {
   Solution solution;
-  auto root = new TreeNode("3,9,20,null,null,15,7");
+  auto root = create_tree("3,9,20,null,null,15,7");
   EXPECT_TRUE(solution.isBalanced(root));
   delete root;
 }

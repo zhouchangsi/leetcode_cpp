@@ -1,5 +1,8 @@
-#include "common_headers.h";
+#include <gtest/gtest.h>
+#include "leetcode.h"
+
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -18,7 +21,7 @@ class Solution {
   }
 };
 
-TEST(leetcode122, case1) {
+TEST(leetcode122, solution) {
   vector<int> prices = {7, 1, 5, 3, 6, 4};
   EXPECT_EQ(Solution().maxProfit(prices), 7);
 }

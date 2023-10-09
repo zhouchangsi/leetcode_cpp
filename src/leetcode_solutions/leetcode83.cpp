@@ -1,7 +1,9 @@
-#include "common_headers.h"
-#include "list_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -21,11 +23,12 @@ class Solution {
   }
 };
 
-TEST(leetcode83, case1) {
+TEST(leetcode83, solution) {
   Solution solution;
-  auto head = new ListNode("1,1,2");
+  auto head = create_list("1,1,2");
   auto result = solution.deleteDuplicates(head);
-  auto expect = new ListNode("1,2");
-  EXPECT_TRUE(result->equals(expect));
-  delete result, expect;
+  auto expect = create_list("1,2");
+  EXPECT_TRUE(is_same_list(result, expect));
+  delete result;
+  delete expect;
 }

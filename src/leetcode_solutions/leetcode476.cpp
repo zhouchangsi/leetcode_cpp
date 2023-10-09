@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -13,7 +15,7 @@ class Solution {
   }
 };
 
-TEST(leetcode476, case1) {
+TEST(leetcode476, solution) {
   Solution s;
   EXPECT_EQ(s.findComplement(5), 2);
   EXPECT_EQ(s.findComplement(1), 0);

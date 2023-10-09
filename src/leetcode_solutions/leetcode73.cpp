@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -34,7 +36,7 @@ class Solution {
   }
 };
 
-TEST(leetcode72, case1) {
+TEST(leetcode72, solution) {
   Solution s;
   EXPECT_EQ(s.minDistance("horse", "ros"), 3);
   EXPECT_EQ(s.minDistance("intention", "execution"), 5);

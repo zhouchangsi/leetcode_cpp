@@ -1,7 +1,9 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -23,7 +25,7 @@ class Solution {
 
 TEST(leetcode236, solution) {
   {
-    TreeNode* root = new TreeNode("6,2,8,0,4,7,9,null,null,3,5");
+    TreeNode* root = create_tree("6,2,8,0,4,7,9,null,null,3,5");
     TreeNode* p = root->left;
     TreeNode* q = root->right;
     TreeNode* ans = root;
@@ -31,7 +33,7 @@ TEST(leetcode236, solution) {
     delete root;
   }
   {
-    TreeNode* root = new TreeNode("6,2,8,0,4,7,9,null,null,3,5");
+    TreeNode* root = create_tree("6,2,8,0,4,7,9,null,null,3,5");
     TreeNode* p = root->left;
     TreeNode* q = root->left->right;
     TreeNode* ans = p;

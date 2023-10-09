@@ -1,4 +1,5 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+// #include "leetcode.h"
 
 using namespace std;
 
@@ -28,7 +29,7 @@ class Solution {
   }
 };
 
-TEST(leetcode785, case1) {
+TEST(leetcode785, solution) {
   vector<vector<int>> graph = {{1, 3}, {0, 2}, {1, 3}, {0, 2}};
   Solution solution;
   bool res = solution.isBipartite(graph);

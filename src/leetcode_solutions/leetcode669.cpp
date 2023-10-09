@@ -1,7 +1,9 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -23,9 +25,9 @@ class Solution {
 
 TEST(leetcode669, sampleInputByProblem1) {
   Solution s;
-  TreeNode* root = new TreeNode("1,0,2");
-  TreeNode* expect = new TreeNode("1,null,2");
+  TreeNode* root = create_tree("1,0,2");
+  TreeNode* expect = create_tree("1,null,2");
   TreeNode* result = s.trimBST(root, 1, 2);
-  EXPECT_TRUE(result->equals(expect));
+  EXPECT_TRUE(is_same_tree(result, expect));
   delete root, expect, result;
 }

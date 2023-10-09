@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -35,7 +37,7 @@ class Solution {
   }
 };
 
-TEST(leetcode766, case1) {
+TEST(leetcode766, solution) {
   Solution s;
   vector<vector<int>> matrix = {{1, 2, 3, 4}, {5, 1, 2, 3}, {9, 5, 1, 2}};
   EXPECT_EQ(s.isToeplitzMatrix(matrix), true);

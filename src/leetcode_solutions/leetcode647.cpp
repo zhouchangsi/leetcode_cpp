@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -19,7 +21,7 @@ class Solution {
   }
 };
 
-TEST(leetcode647, case1) {
+TEST(leetcode647, solution) {
   Solution s;
   EXPECT_EQ(s.countSubstrings("abc"), 3);
   EXPECT_EQ(s.countSubstrings("aaa"), 6);

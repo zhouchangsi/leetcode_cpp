@@ -1,7 +1,9 @@
-/**
- * @file leetcode260.cpp
- */
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
+
+using namespace std;
+using namespace leetcode;
+
 
 using namespace std;
 
@@ -29,7 +31,7 @@ class Solution {
   }
 };
 
-TEST(leetcode260, case1) {
+TEST(leetcode260, solution) {
   Solution s;
   vector<int> nums = {1, 2, 1, 3, 2, 5};
   EXPECT_EQ(s.singleNumber(nums), vector<int>({3, 5}));

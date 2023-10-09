@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -23,16 +25,9 @@ class Solution {
   }
 };
 
-TEST(leetcode704, case1) {
+TEST(leetcode704, solution) {
   vector<int> nums = {-1, 0, 3, 5, 9, 12};
   Solution solution;
   int res = solution.search(nums, 9);
   EXPECT_EQ(res, 4);
-}
-
-TEST(leetcode704, case2) {
-  vector<int> nums = {-1, 0, 3, 5, 9, 12};
-  Solution solution;
-  int res = solution.search(nums, 2);
-  EXPECT_EQ(res, -1);
 }

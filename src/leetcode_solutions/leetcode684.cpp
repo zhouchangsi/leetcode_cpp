@@ -1,7 +1,8 @@
-#include "common_headers.h"
-#include "union_find_sets.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -21,7 +22,7 @@ class Solution {
   }
 };
 
-TEST(leetcode648, case1) {
+TEST(leetcode648, solution) {
   Solution s;
   vector<vector<int>> edges = {{1, 2}, {1, 3}, {2, 3}};
   vector<int> expect = {2, 3};

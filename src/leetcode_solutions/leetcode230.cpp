@@ -1,7 +1,9 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -27,7 +29,7 @@ class Solution {
 };
 
 TEST(leetcode230, solution) {
-  TreeNode* root = new TreeNode("3,1,4,null,2");
+  TreeNode* root = create_tree("3,1,4,null,2");
   int k = 1;
   int ans = 1;
   EXPECT_EQ(Solution().kthSmallest(root, k), ans);

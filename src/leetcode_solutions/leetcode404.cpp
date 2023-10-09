@@ -1,7 +1,9 @@
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
+
 
 class Solution {
  public:
@@ -17,9 +19,9 @@ class Solution {
   }
 };
 
-TEST(leetcode404, case1) {
+TEST(leetcode404, solution) {
   Solution s;
-  TreeNode* root = new TreeNode("3,9,20,null,null,15,7");
+  TreeNode* root = create_tree("3,9,20,null,null,15,7");
   EXPECT_EQ(s.sumOfLeftLeaves(root), 24);
   delete root;
 }

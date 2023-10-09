@@ -1,9 +1,8 @@
-#include <string>
-#include <vector>
-
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -28,7 +27,7 @@ class Solution {
   }
 };
 
-TEST(leetcode318, case1) {
+TEST(leetcode318, solution) {
   Solution s;
   vector<string> words = {"abcw", "baz", "foo", "bar", "xtfn", "abcdef"};
   EXPECT_EQ(s.maxProduct(words), 16);

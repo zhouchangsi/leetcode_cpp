@@ -1,6 +1,8 @@
-#include "common_headers.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -9,7 +11,7 @@ class Solution {
   }
 };
 
-TEST(leetcode342, case1) {
+TEST(leetcode342, solution) {
   Solution s;
   EXPECT_EQ(s.isPowerOfFour(16), true);
   EXPECT_EQ(s.isPowerOfFour(5), false);

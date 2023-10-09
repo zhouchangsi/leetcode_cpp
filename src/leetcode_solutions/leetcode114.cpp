@@ -1,10 +1,8 @@
-/**
- * https://leetcode.cn/problems/flatten-binary-tree-to-linked-list/description/
- */
-#include "common_headers.h"
-#include "tree_node.h"
+#include <gtest/gtest.h>
+#include "leetcode.h"
 
 using namespace std;
+using namespace leetcode;
 
 class Solution {
  public:
@@ -29,11 +27,11 @@ class Solution {
   }
 };
 
-TEST(leetcode114, case1) {
-  TreeNode* root = new TreeNode("1,2,5,3,4,null,6");
+TEST(leetcode114, solution) {
+  TreeNode* root = create_tree("1,2,5,3,4,null,6");
   Solution s;
   s.flatten(root);
-  auto expect = new TreeNode("1,null,2,null,3,null,4,null,5,null,6");
-  EXPECT_TRUE(root->equals(expect));
+  auto expect = create_tree("1,null,2,null,3,null,4,null,5,null,6");
+  EXPECT_TRUE(is_same_tree(root, expect));
   delete root, expect;
 }
