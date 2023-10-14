@@ -4,7 +4,6 @@
 using namespace std;
 using namespace leetcode;
 
-
 class Solution {
  public:
   TreeNode* sortedListToBST(ListNode* head) { return helper(head, nullptr); }
@@ -30,5 +29,4 @@ TEST(leetcode109, solution) {
   TreeNode* expect = create_tree("0,-3,9,-10,null,5");
   TreeNode* result = Solution().sortedListToBST(head);
   EXPECT_TRUE(is_same_tree(result, expect));
-  delete result, expect;
 }

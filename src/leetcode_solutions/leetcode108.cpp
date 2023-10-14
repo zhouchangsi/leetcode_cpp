@@ -33,5 +33,4 @@ TEST(leetcode108, solution) {
 
   EXPECT_TRUE(leetcode::is_same_tree(result, expect1) ||
               leetcode::is_same_tree(result, expect2));
-  delete result, expect1, expect2;
 }

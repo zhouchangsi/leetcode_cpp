@@ -4,7 +4,6 @@
 using namespace std;
 using namespace leetcode;
 
-
 class Solution {
  public:
   TreeNode* trimBST(TreeNode* root, int low, int high) {
@@ -29,5 +28,4 @@ TEST(leetcode669, sampleInputByProblem1) {
   TreeNode* expect = create_tree("1,null,2");
   TreeNode* result = s.trimBST(root, 1, 2);
   EXPECT_TRUE(is_same_tree(result, expect));
-  delete root, expect, result;
 }

@@ -4,7 +4,6 @@
 using namespace std;
 using namespace leetcode;
 
-
 class Solution {
  public:
   ListNode* oddEvenList(ListNode* head) {
@@ -30,5 +29,4 @@ TEST(leetcode328, solution) {
   ListNode* result = solution.oddEvenList(l1);
   ListNode* expect = create_list("7,4,2,3");
   EXPECT_TRUE(is_same_list(result, expect));
-  delete result, expect;
 }

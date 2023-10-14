@@ -4,7 +4,6 @@
 using namespace std;
 using namespace leetcode;
 
-
 class Solution {
  public:
   bool isSubtree(TreeNode* root, TreeNode* subRoot) {
@@ -31,5 +30,4 @@ TEST(leetcode572, solution) {
   TreeNode* root = create_tree("3,4,5,1,2");
   TreeNode* subRoot = create_tree("4,1,2");
   EXPECT_EQ(s.isSubtree(root, subRoot), true);
-  delete root, subRoot;
 }

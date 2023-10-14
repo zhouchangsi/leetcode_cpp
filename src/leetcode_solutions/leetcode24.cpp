@@ -30,5 +30,4 @@ TEST(leetcode24, solution) {
   auto result = solution.swapPairs(head);
   auto expect = create_list("2,1,4,3");
   EXPECT_TRUE(is_same_list(result, expect));
-  delete result, expect;
 }

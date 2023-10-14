@@ -61,5 +61,4 @@ TEST(leetcode445, solution) {
   ListNode* result = my_queue.addTwoNumbers(l1, l2);
   ListNode* expect = create_list("7,8,0,7");
   EXPECT_TRUE(is_same_list(result, expect));
-  delete result, expect;
 }

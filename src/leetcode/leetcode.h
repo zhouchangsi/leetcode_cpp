@@ -46,7 +46,6 @@ struct ListNode {
   ~ListNode() { delete next; }
 };
 
-
 /**
  * @brief compare two lists
  *
@@ -78,7 +77,6 @@ struct TreeNode {
   }
 };
 
-
 /**
  * @brief Create a tree object
  *
@@ -92,7 +90,6 @@ bool is_same_tree(TreeNode* root1, TreeNode* root2);
 
 int tree_depth(TreeNode* root);
 int tree_size(TreeNode* root);
-
 
 class UnionFindSets {
  public:
@@ -118,8 +115,6 @@ class UnionFindSets {
     }
   }
 };
-
-
 
 /**
  * @brief Leetcode's graph node named Node.
@@ -150,18 +145,18 @@ class Graph {
    *
    * @param adj_list e.g. "[[2,4],[1,3],[2,4],[1,3]]"
    */
-  //   Graph(string adj_list) {
-  //     auto edges = leetcode::parse_leetcode_matrix(adj_list);
-  //     for (int i = 0; i < edges.size(); i++) {
-  //       nodes[i + 1]->val = i + 1;
-  //     }
-  //     for (int i = 0; i < edges.size(); i++) {
-  //       for (int j = 0; j < edges[i].size(); j++) {
-  //         auto neighbor = nodes[edges[i][j]];
-  //         nodes[i + 1]->neighbors.push_back(neighbor);
-  //       }
-  //     }
-  //   }
+  Graph(std::string adj_list) {
+    auto edges = leetcode::parse_leetcode_matrix(adj_list);
+    for (int i = 0; i < edges.size(); i++) {
+      nodes[i + 1]->val = i + 1;
+    }
+    for (int i = 0; i < edges.size(); i++) {
+      for (int j = 0; j < edges[i].size(); j++) {
+        auto neighbor = nodes[edges[i][j]];
+        nodes[i + 1]->neighbors.push_back(neighbor);
+      }
+    }
+  }
 };
 
 };  // namespace leetcode
