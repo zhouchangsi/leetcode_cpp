@@ -21,12 +21,12 @@ class Solution {
 };
 
 TEST(leetcode540, solution) {
-    Solution s;
-    vector<int> nums;
-    
-    nums = {1, 1, 2, 3, 3, 4, 4, 8, 8};
-    ASSERT_EQ(s.singleNonDuplicate(nums), 2);
-    
-    nums = {3, 3, 7, 7, 10, 11, 11};
-    ASSERT_EQ(s.singleNonDuplicate(nums), 10);
+  Solution s;
+  vector<int> nums;
+
+  nums = {1, 1, 2, 3, 3, 4, 4, 8, 8};
+  ASSERT_EQ(s.singleNonDuplicate(nums), 2);
+
+  nums = {3, 3, 7, 7, 10, 11, 11};
+  ASSERT_EQ(s.singleNonDuplicate(nums), 10);
 }
