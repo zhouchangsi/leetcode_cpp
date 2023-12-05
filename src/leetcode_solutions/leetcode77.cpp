@@ -36,7 +36,7 @@ class Solution {
     path.emplace_back(start);
     dfs(n, k, start + 1, path, res);
     path.pop_back();
-    dfs(n, k, start + 1, path, res);
+    dfs(n, k, start + 1, path, res); 
   }
 };
 
