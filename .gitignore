@@ -1,9 +1,0 @@
-.cache
-.vs
-.vscode
-bin
-build
-out
-CMakeUserPresets.json
-CMakePresets.json
-CMakeSettings.json

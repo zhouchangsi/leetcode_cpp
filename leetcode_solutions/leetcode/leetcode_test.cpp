@@ -4,7 +4,8 @@
 using namespace std;
 using namespace leetcode;
 
-TEST(helper, is_number) {
+TEST(helper, is_number)
+{
   EXPECT_TRUE(is_integer("123"));
   EXPECT_TRUE(is_integer("-123"));
   EXPECT_TRUE(is_integer("0"));
@@ -16,8 +17,9 @@ TEST(helper, is_number) {
   EXPECT_FALSE(is_integer("123.0"));
 }
 
-TEST(helper, _parse_leetcode_string) {
-  vector<optional<int>> expected = {1, 2, 3, nullopt, nullopt, 4, 5};
+TEST(helper, _parse_leetcode_string)
+{
+  vector<optional<int>> expected = { 1, 2, 3, nullopt, nullopt, 4, 5 };
   {
     auto nodes = parse_leetcode_list("[1,2,3,null,null,4,5]");
     EXPECT_EQ(nodes, expected);
@@ -28,13 +30,17 @@ TEST(helper, _parse_leetcode_string) {
   }
 }
 
-TEST(helper, _parse_leetcode_matrix) {
+TEST(helper, _parse_leetcode_matrix)
+{
   auto matrix = parse_leetcode_matrix("[[2,4],[1,3],[2,4],[1,3]]");
-  std::vector<std::vector<int>> expected = {{2, 4}, {1, 3}, {2, 4}, {1, 3}};
+  std::vector<std::vector<int>> expected = {
+    { 2, 4 }, { 1, 3 }, { 2, 4 }, { 1, 3 }
+  };
   EXPECT_EQ(matrix, expected);
 }
 
-TEST(list, apis) {
+TEST(list, apis)
+{
   auto list1 = create_list("1,2,3,4,5");
   EXPECT_EQ(list1->val, 1);
   EXPECT_EQ(list1->next->val, 2);
@@ -50,7 +56,8 @@ TEST(list, apis) {
   delete list3;
 }
 
-TEST(tree, apis) {
+TEST(tree, apis)
+{
   auto tree_1 = create_tree("1,2,3");
   EXPECT_EQ(tree_1->val, 1);
   EXPECT_EQ(tree_1->left->val, 2);
@@ -71,7 +78,8 @@ TEST(tree, apis) {
   delete tree_4;
 }
 
-TEST(union_find_sets, ok) {
+TEST(union_find_sets, ok)
+{
   UnionFindSets ufs(10);
   EXPECT_EQ(ufs.find(1), 1);
   EXPECT_EQ(ufs.find(2), 2);
