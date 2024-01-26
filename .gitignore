@@ -7,3 +7,5 @@ out
 CMakeUserPresets.json
 CMakePresets.json
 CMakeSettings.json
+
+*.exe
