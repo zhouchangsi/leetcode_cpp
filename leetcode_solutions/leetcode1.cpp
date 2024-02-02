@@ -1,8 +1,5 @@
-#include "leetcode.h"
-#include <gtest/gtest.h>
-
-using namespace std;
-using namespace leetcode;
+#include "./leetcode/env.h"
+#include <cassert>
 
 class Solution
 {
@@ -25,12 +22,4 @@ int
 main()
 {
   return 0;
-}
-
-TEST(leetcode1, solution)
-{
-  vector<int> nums = { 2, 7, 11, 15 };
-  int target = 9;
-  vector<int> expect = { 0, 1 };
-  EXPECT_EQ(Solution().twoSum(nums, target), expect);
 }

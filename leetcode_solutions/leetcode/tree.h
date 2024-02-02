@@ -1,5 +1,6 @@
 #pragma once
 #include "./common.h"
+#include <queue>
 
 namespace leetcode {
 
@@ -12,20 +13,17 @@ struct TreeNode
     : val(0)
     , left(nullptr)
     , right(nullptr)
-  {
-  }
+  {}
   TreeNode(int x)
     : val(x)
     , left(nullptr)
     , right(nullptr)
-  {
-  }
+  {}
   TreeNode(int x, TreeNode* left, TreeNode* right)
     : val(x)
     , left(left)
     , right(right)
-  {
-  }
+  {}
 
   ~TreeNode()
   {
@@ -41,10 +39,10 @@ struct TreeNode
  * "1,2,3,null,null,4,5"
  * @return TreeNode*
  */
-TreeNode*
+inline TreeNode*
 create_tree(std::string str)
 {
-  auto nums = parse_leetcode_list(str);
+  auto nums = parse_leetcode_list<int>(str);
   TreeNode* root = new TreeNode(nums[0].value());
   std::queue<TreeNode*> q;
   q.push(root);
@@ -66,7 +64,7 @@ create_tree(std::string str)
   return root;
 }
 
-bool
+inline bool
 is_same_tree(TreeNode* root1, TreeNode* root2)
 {
   if (root1 == nullptr && root2 == nullptr) {
@@ -82,7 +80,7 @@ is_same_tree(TreeNode* root1, TreeNode* root2)
          is_same_tree(root1->right, root2->right);
 }
 
-int
+inline int
 tree_depth(TreeNode* root)
 {
   if (root == nullptr) {
@@ -91,7 +89,7 @@ tree_depth(TreeNode* root)
   return std::max(tree_depth(root->left), tree_depth(root->right)) + 1;
 }
 
-int
+inline int
 tree_size(TreeNode* root)
 {
   if (root == nullptr) {

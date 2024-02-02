@@ -10,18 +10,15 @@ struct ListNode
   ListNode()
     : val(0)
     , next(nullptr)
-  {
-  }
+  {}
   ListNode(int x)
     : val(x)
     , next(nullptr)
-  {
-  }
+  {}
   ListNode(int x, ListNode* next)
     : val(x)
     , next(next)
-  {
-  }
+  {}
   ~ListNode() { delete next; }
 };
 
@@ -33,7 +30,7 @@ struct ListNode
  * @return true
  * @return false
  */
-bool
+inline bool
 is_same_list(ListNode* list1, ListNode* list2)
 {
   ListNode *node1 = list1, *node2 = list2;
@@ -51,10 +48,13 @@ is_same_list(ListNode* list1, ListNode* list2)
  * @brief create a list from a string
  * @param str e.g. "1,2,3,4,5", "[1,2,3,4,5]"
  */
-ListNode*
+inline ListNode*
 create_list(std::string str)
 {
-  auto nums = parse_leetcode_list(str);
+  auto nums = parse_leetcode_list<int>(str);
+  if (nums.empty()) {
+    return nullptr;
+  }
   ListNode* node = new ListNode();
   ListNode* head = node;
   for (auto num : nums) {
