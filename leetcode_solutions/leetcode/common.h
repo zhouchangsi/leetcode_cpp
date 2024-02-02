@@ -32,7 +32,8 @@ bool inline is_integer(const std::string& s)
  * @param str e.g. "[1,2,3,null,null,4,5]" or "1,2,3,null,null,4,5"
  * @return std::vector<std::optional<int>>
  */
-inline std::vector<std::optional<int>>
+template<typename T>
+inline std::vector<std::optional<T>>
 parse_leetcode_list(std::string str)
 {
   if (str.empty()) {
@@ -43,7 +44,7 @@ parse_leetcode_list(std::string str)
     str = str.substr(1, str.size() - 2);
   }
   str += ",";
-  std::vector<std::optional<int>> nodes;
+  std::vector<std::optional<T>> nodes;
   std::string token = "";
   int i = 0;
   do {
@@ -52,8 +53,8 @@ parse_leetcode_list(std::string str)
       token += c;
       continue;
     }
-    nodes.push_back(token == "null" ? std::optional<int>(std::nullopt)
-                                    : std::optional<int>(std::stoi(token)));
+    nodes.push_back(token == "null" ? std::optional<T>(std::nullopt)
+                                    : std::optional<T>(std::stoi(token)));
     token = "";
   } while (i++ < str.size());
   return nodes;
@@ -65,7 +66,8 @@ parse_leetcode_list(std::string str)
  * @param matrix e.g. "[[1,2,3],[4,5,6],[7,8,9]]"
  * @return vector<vector<int>>
  */
-inline std::vector<std::vector<int>>
+template<typename T>
+inline std::vector<std::vector<T>>
 parse_leetcode_matrix(std::string matrix)
 {
   if (matrix.empty()) {
@@ -73,7 +75,7 @@ parse_leetcode_matrix(std::string matrix)
   }
   // cut the first '[' and last ']'
   matrix = matrix.substr(1, matrix.size() - 2);
-  std::vector<std::vector<int>> rows;
+  std::vector<std::vector<T>> rows;
   std::string row = ""; // e.g. "1,2,3"
   int i = 0;
   do {
@@ -88,8 +90,8 @@ parse_leetcode_matrix(std::string matrix)
     }
 
     row += c;
-    auto optional_nums = parse_leetcode_list(row);
-    std::vector<int> nums;
+    auto optional_nums = parse_leetcode_list<T>(row);
+    std::vector<T> nums;
     for (auto num : optional_nums) {
       nums.push_back(num.value());
     }

@@ -24,8 +24,8 @@ public:
 int
 main()
 {
-  auto p = leetcode::create_tree("1,2,3");
-  auto q = leetcode::create_tree("1,2,3,4");
-  assert(leetcode::is_same_tree(p, q));
+  auto p = create_tree("1,2,3");
+  auto q = create_tree("1,2,3,4");
+  assert(is_same_tree(p, q));
   return 0;
 }

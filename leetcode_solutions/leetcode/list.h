@@ -51,7 +51,7 @@ is_same_list(ListNode* list1, ListNode* list2)
 inline ListNode*
 create_list(std::string str)
 {
-  auto nums = parse_leetcode_list(str);
+  auto nums = parse_leetcode_list<int>(str);
   if (nums.empty()) {
     return nullptr;
   }

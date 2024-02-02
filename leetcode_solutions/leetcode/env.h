@@ -1,6 +1,7 @@
 #pragma once
 #include <algorithm>
 #include <cassert>
+#include <functional>
 #include <map>
 #include <optional>
 #include <queue>

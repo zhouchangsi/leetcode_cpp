@@ -1,5 +1,6 @@
 #pragma once
 #include "./common.h"
+#include <map>
 
 namespace leetcode {
 
@@ -39,7 +40,7 @@ public:
    */
   Graph(std::string adj_list)
   {
-    auto edges = leetcode::parse_leetcode_matrix(adj_list);
+    auto edges = leetcode::parse_leetcode_matrix<int>(adj_list);
     for (int i = 0; i < edges.size(); i++) {
       nodes[i + 1]->val = i + 1;
     }
