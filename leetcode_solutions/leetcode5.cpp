@@ -3,10 +3,10 @@
 // leetcode5: 最长回文子串
 // https://leetcode-cn.com/problems/longest-palindromic-substring/
 // 思路：动态规划
-// dp[i][j] 表示 s[i...j] 是否是回文串
-// dp[i][j] = dp[i + 1][j - 1] && s[i] == s[j]
+// is_palindrome[i][j] 表示 s[i...j] 是否是回文串
+// is_palindrome[i][j] = is_palindrome[i + 1][j - 1] && s[i] == s[j]
 // 边界条件：dp[i][i] = true
-//          dp[i][i + 1] = s[i] == s[i + 1]
+//          is_palindrome[i][i + 1] = s[i] == s[i + 1]
 // 时间复杂度：O(n^2)
 // 空间复杂度：O(n^2)
 class Solution
@@ -15,12 +15,12 @@ public:
   string longestPalindrome(string s)
   {
     int n = s.size();
-    vector<vector<bool>> dp(n, vector<bool>(n, false));
+    vector<vector<bool>> is_palindrome(n, vector<bool>(n, false));
     int max_len = 1, start = 0;
     for (int i = 0; i < n; ++i) {
-      dp[i][i] = true;
+      is_palindrome[i][i] = true;
       if (i < n - 1 && s[i] == s[i + 1]) {
-        dp[i][i + 1] = true;
+        is_palindrome[i][i + 1] = true;
         max_len = 2;
         start = i;
       }
@@ -28,8 +28,8 @@ public:
     for (int len = 3; len <= n; ++len) {
       for (int i = 0; i + len - 1 < n; ++i) {
         int j = i + len - 1;
-        if (s[i] == s[j] && dp[i + 1][j - 1]) {
-          dp[i][j] = true;
+        if (s[i] == s[j] && is_palindrome[i + 1][j - 1]) {
+          is_palindrome[i][j] = true;
           max_len = len;
           start = i;
         }

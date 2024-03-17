@@ -8,7 +8,7 @@ gcd(int a, int b)
 }
 
 inline bool
-isEven(int a)
+is_even(int a)
 {
   return (a & 1) == 0;
 }
@@ -22,12 +22,12 @@ gcd_using_bit(int a, int b)
   if (b == 0) {
     return a;
   }
-  bool is_a_even = isEven(a), is_b_even = isEven(b);
-  if (is_a_even && is_b_even) {
+  bool a_is_even = is_even(a), b_is_even = is_even(b);
+  if (a_is_even && b_is_even) {
     return 2 * gcd(a >> 1, b >> 1);
-  } else if (is_a_even && !is_b_even) {
+  } else if (a_is_even && !b_is_even) {
     return gcd(a >> 1, b);
-  } else if (!is_a_even && is_b_even) {
+  } else if (!a_is_even && b_is_even) {
     return gcd(a, b >> 1);
   } else {
     return gcd(b, a - b);
