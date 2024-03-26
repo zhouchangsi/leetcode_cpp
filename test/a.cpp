@@ -1,32 +1,36 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int count_mountains(vector<int> heights) {
-  int n = heights.size();
-  int count = 0;
-  if (n == 0) return 0;
-  if (n == 1) return heights[0] > 0 ? 1 : 0;
-  if (heights[0] > heights[1]) count++;
-  if (heights[n - 1] > heights[n - 2]) count++;
-  for (int i = 1; i < n - 1; i++) {
-    if (heights[i] > heights[i - 1] && heights[i] > heights[i + 1]) {
-      count++;
+void solution(string line) {
+  vector<string> airs;
+
+  istringstream iss(line);
+  string token;
+  while (getline(iss, token, ',')) {
+    airs.emplace_back(token);
+  }
+
+  sort(airs.begin(), airs.end(), [](const string &a, const string &b) {
+    string ca = a.substr(0, 2);
+    string cb = b.substr(0, 2);
+    if (ca == cb) {
+      return a.substr(2) < b.substr(2);
+    }
+    return ca < cb;
+  });
+
+  for (int i = 0; i < airs.size(); i++) {
+    cout << airs[i];
+    if (i != airs.size() - 1) {
+      cout << ",";
     }
   }
-  return count;
 }
 
 int main() {
-  string line = "0,1,4,3,1,0,0,1,2,3,1,2,1,0";
+  // solution("CA3385,CZ6678,SC6508,DU7523,HK4456,MK0987");
+  string line;
   getline(cin, line);
-  stringstream ss(line);
-  string heights;
-  vector<int> tokens;
-  while (getline(ss, heights, ',')) {
-    tokens.push_back(stoi(heights));
-  }
-
-  cout << count_mountains(tokens) << endl;
-
+  solution(line);
   return 0;
 }
