@@ -3,19 +3,18 @@
 using namespace std;
 
 void solution(vector<string> nums) {
-  sort(nums.begin(), nums.end(), [](const string& a, const string& b) { return a + b > b + a; });
+  sort(nums.begin(), nums.end(),
+       [](const string& a, const string& b) { return a + b > b + a; });
   copy(nums.begin(), nums.end(), ostream_iterator<string>(cout, ""));
 };
 
 int main() {
-  vector<string> nums;
-
   //   string line = "4589,101,41425,9999";
   //   string line = "22,223";
+  vector<string> nums;
   string line = "22,221";
-  //   getline(cin, line);
+  getline(cin, line);
   istringstream iss(line);
   while (getline(iss, line, ',')) nums.push_back(line);
-
   solution(nums);
 }

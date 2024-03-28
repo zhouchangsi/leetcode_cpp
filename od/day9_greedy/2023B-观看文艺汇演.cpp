@@ -3,7 +3,6 @@
 #include <iostream>
 #include <vector>
 
-
 using namespace std;
 
 struct Interval {
@@ -13,8 +12,24 @@ struct Interval {
   Interval(int s, int e) : start(s), end(e) {}
 };
 
-bool compareIntervals(const Interval& a, const Interval& b) {
-  return a.start < b.start;
+void greedy(vector<Interval>& intervals) {
+  sort(intervals.begin(), intervals.end(),
+       [](const Interval& a, const Interval& b) { return a.start < b.start; });
+  int ans = 0;
+  int pre_end = -1e9;
+  for (const auto& interval : intervals) {
+    int start = interval.start;
+    int end = interval.end;
+    if (start >= pre_end) {
+      ans++;
+      pre_end = end;
+    } else if (start < pre_end && pre_end <= end) {
+      continue;
+    } else if (pre_end > end) {
+      pre_end = end;
+    }
+  }
+  cout << ans << endl;
 }
 
 int main() {
@@ -26,29 +41,10 @@ int main() {
     int start, during;
     cin >> start >> during;
     int end = start + during + 15;
-    intervals.push_back(Interval(start, end));
+    intervals.push_back({start, end});
   }
 
-  sort(intervals.begin(), intervals.end(), compareIntervals);
-
-  int ans = 0;
-  int preEnd = -1e9;
-
-  for (const auto& interval : intervals) {
-    int start = interval.start;
-    int end = interval.end;
-
-    if (start >= preEnd) {
-      ans++;
-      preEnd = end;
-    } else if (start < preEnd && preEnd <= end) {
-      continue;
-    } else if (preEnd > end) {
-      preEnd = end;
-    }
-  }
-
-  cout << ans << endl;
+  greedy(intervals);
 
   return 0;
 }
