@@ -4,37 +4,37 @@
 using namespace std;
 
 int maxProfit(const vector<int>& prices) {
-    int profit = 0;
+  int profit = 0;
 
-    for (int i = 1; i < prices.size(); i++) {
-        int tmp = prices[i] - prices[i - 1];
-        if (tmp > 0) {
-            profit += tmp;
-        }
+  for (int i = 1; i < prices.size(); i++) {
+    int tmp = prices[i] - prices[i - 1];
+    if (tmp > 0) {
+      profit += tmp;
     }
+  }
 
-    return profit;
+  return profit;
 }
 
 int main() {
-    int n, days;
-    cin >> n >> days;
+  int n, days;
+  cin >> n >> days;
 
-    vector<int> numbers(n);
-    for (int i = 0; i < n; i++) {
-        cin >> numbers[i];
+  vector<int> numbers(n);
+  for (int i = 0; i < n; i++) {
+    cin >> numbers[i];
+  }
+
+  int ans = 0;
+  for (int i = 0; i < n; i++) {
+    vector<int> prices(days);
+    for (int j = 0; j < days; j++) {
+      cin >> prices[j];
     }
+    ans += maxProfit(prices) * numbers[i];
+  }
 
-    int ans = 0;
-    for (int i = 0; i < n; i++) {
-        vector<int> prices(days);
-        for (int j = 0; j < days; j++) {
-            cin >> prices[j];
-        }
-        ans += maxProfit(prices) * numbers[i];
-    }
+  cout << ans << endl;
 
-    cout << ans << endl;
-
-    return 0;
+  return 0;
 }

@@ -1,44 +1,47 @@
 /**
  * https://og7kl7g6h8.feishu.cn/docx/EIEjdKhddoy5ePxqG1TcGnytneh
  */
-#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <climits>
+#include <iostream>
+#include <vector>
 
 using namespace std;
 
-int main()
-{
-    int distance;
-    cin >> distance;
-    int n;
-    cin >> n;
-    auto stations = vector<pair<int, int>>(n);
-    for (int i = 0; i < n; i++)
-    {
-        cin >> stations[i].first >> stations[i].second;
-        stations[i].second++;
+struct Station {
+  int distance;
+  int cost;
+};
+
+void dp(int distance, int n, vector<Station> s) {
+  auto min_time = vector<int>(n + 2, INT_MAX);
+  min_time[0] = 0;
+
+  for (int i = 1; i <= n + 1; i++) {
+    for (int j = i - 1; j >= 0; j--) {
+      if (s[i].distance - s[j].distance > 1000) {
+        break;
+      }
+
+      min_time[i] = min(min_time[i], min_time[j] + s[i].cost);
     }
+  }
 
-    auto min_time = vector<int>(n, INT_MAX);
+  cout << min_time.back() + distance / 100 << '\n';
+}
 
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i; j >= 0; j--)
-        {
-            int &distance_i = stations[i].first, &distance_j = stations[j].first;
-            int &cost = stations[i].second;
-            if (distance_i - distance_j > 1000)
-            {
-                break;
-            }
-            else
-            {
-                min_time[i] = min(min_time[i], min_time[j] + cost);
-            }
-        }
-    }
+int main() {
+  //   dp(1500, 4, {{0, 0}, {300, 3}, {600, 2}, {1000, 1}, {1200, 2}, {1500,
+  //   0}});
 
-    int ans = min_time[n - 1] + distance / 100;
+  int distance, n;
+  cin >> distance >> n;
+  auto s = vector<Station>(n + 2);
+  s[0] = {0, 0};
+  for (int i = 1; i <= n; i++) {
+    cin >> s[i].distance >> s[i].cost;
+    s[i].cost++;
+  }
+  s[n + 1] = {distance, 0};
+  dp(distance, n, s);
 }

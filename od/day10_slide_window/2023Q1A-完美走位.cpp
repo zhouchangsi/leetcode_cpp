@@ -1,61 +1,63 @@
 /**
  * https://og7kl7g6h8.feishu.cn/docx/OAMMdvCuDocxiZxW5vvcJztgnAe
-*/
-#include <iostream>
-#include <vector>
+ */
 #include <algorithm>
+#include <climits>
+#include <iostream>
 #include <map>
 #include <unordered_map>
-#include <climits>
+#include <vector>
+
 using namespace std;
 
-bool check(const unordered_map<char, int> &cntWin, const unordered_map<char, int> &cntSub) {
-    for (const auto &entry : cntSub) {
-        if (cntWin.find(entry.first) == cntWin.end() || cntWin.at(entry.first) < entry.second) {
-            return false;
-        }
+void slide_window(string line) {
+  unordered_map<char, int> cnt;
+  for (char ch : line) {
+    cnt[ch]++;
+  }
+
+  int num = line.length() / 4;
+  unordered_map<char, int> cnt_sub;
+  for (const auto &[ch, count] : cnt) {
+    if (count > num) {
+      cnt_sub[ch] = count - num;
+    }
+  }
+
+  if (cnt_sub.empty()) {
+    cout << 0 << endl;
+    return;
+  }
+
+  auto check = [&cnt_sub](const unordered_map<char, int> &cnt_win) {
+    for (const auto [ch, count] : cnt_sub) {
+      if (cnt_win.find(ch) == cnt_win.end() || cnt_win.at(ch) < count) {
+        return false;
+      }
     }
     return true;
+  };
+
+  unordered_map<char, int> cnt_win;
+  int ans = INT_MAX;
+  int l = 0;
+  for (int r = 0; r < line.length(); r++) {
+    cnt_win[line[r]]++;
+    while (check(cnt_win)) {
+      ans = min(ans, r - l + 1);
+      cnt_win[line[l]]--;
+      l++;
+    }
+  }
+
+  cout << ans << endl;
 }
 
 int main() {
-    string s;
-    getline(cin, s);
-    int num = s.length() / 4;
+  //   slide_window("AASW");
 
-    unordered_map<char, int> count;
-    for (char ch : s) {
-        count[ch]++;
-    }
-
-    unordered_map<char, int> cntSub;
-    for (const auto &entry : count) {
-        if (entry.second > num) {
-            cntSub[entry.first] = entry.second - num;
-        }
-    }
-
-    if (cntSub.empty()) {
-        cout << 0 << endl;
-    } else {
-        unordered_map<char, int> cntWin;
-        int ans = INT_MAX;
-        int left = 0;
-
-        for (int right = 0; right < s.length(); right++) {
-            char ch = s[right];
-            cntWin[ch]++;
-
-            while (check(cntWin, cntSub)) {
-                ans = min(ans, right - left + 1);
-                char leftChar = s[left];
-                cntWin[leftChar]--;
-                left++;
-            }
-        }
-
-        cout << ans << endl;
-    }
-
-    return 0;
+  string s;
+  getline(cin, s);
+  slide_window(s);
+  return 0;
 }
