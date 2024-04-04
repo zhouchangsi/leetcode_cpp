@@ -98,6 +98,7 @@ class ImageBoundary
         return count;
     }
 };
+
 /**
  * 【DFS/BFS】2023C-精准核酸检测
  */
