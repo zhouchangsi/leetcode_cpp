@@ -1,60 +1,51 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Interval {
-  int start;
-  int end;
-  bool operator<(const Interval &b) const { return start < b.start; }
-  bool is_overlap(const Interval &b) {
-    return !(start < b.start && end < b.start) &&
-           !(start > b.end && end > b.end);
-  }
-};
-
-int solution() {
-  int size = 1;
-  cin >> size;
-  vector<Interval> mem;
-  // vector<pair<int, int>> mem = {{0, 1}, {3, 5}, {6, 13}};
-  int offset, value;
-  while (cin >> offset >> value) {
-    mem.emplace_back(offset, offset + value);
-  }
-
-  sort(mem.begin(), mem.end());
-
-  // cout << size << endl;
-  // for (auto i : mem) {
-  //   cout << i.first << "," << i.second << " ";
-  // }
-
-  int n = mem.size();
-  for (int i = 0; i < n - 1; i++) {
-    if (mem[i].is_overlap(mem[i + 1])) {
-      return -1;
+void solve(int size, vector<pair<int, int>> mm) {
+  int diff = INT_MAX, ans = -1;
+  sort(mm.begin(), mm.end());
+  for (int i = 1; i < mm.size(); i++) {
+    auto [pre_start, pre_end] = mm[i - 1];
+    auto [cur_start, cur_end] = mm[i];
+    if (cur_start < pre_end) {
+      cout << ans << endl;
+      return;
     }
   }
 
-  int diff = 100;
-  int ans = -1;
-  if (mem[0].start - size > 0) {
-    diff = mem[0].start;
+  auto [first_start, _] = mm[0];
+  if (first_start > size && first_start - size < diff) {
+    diff = first_start - size;
     ans = 0;
   }
-  for (int i = 0; i < n; i++) {
-    int pre_end = mem[i].end;
-    if (pre_end >= 100) break;
-    int cur_start = i != n - 1 ? mem[i + 1].start : 100;
+
+  for (int i = 1; i < mm.size(); i++) {
+    auto [pre_start, pre_end] = mm[i - 1];
+    auto [cur_start, cur_end] = mm[i];
     int free_size = cur_start - pre_end;
     if (free_size >= size && free_size - size < diff) {
       diff = free_size - size;
       ans = pre_end;
     }
   }
+  auto [_l, last_end] = mm.back();
+  int free_size = 100 - last_end;
+  if (free_size >= size && free_size - size < diff) {
+    diff = free_size - size;
+    ans = last_end;
+  }
 
-  return ans;
+  cout << ans << endl;
 }
+
 int main() {
-  cout << solution() << endl;
-  return 0;
+  solve(1, {{0, 1}, {3, 5}, {6, 13}});
+  // int size;
+  // cin >> size >> ws;
+  // int start, offset;
+  // vector<pair<int, int>> mm;
+  // while (cin >> start >> offset >> ws) {
+  //   mm.push_back({start, start + offset});
+  // }
+  // solve(size, mm);
 }

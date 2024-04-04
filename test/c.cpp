@@ -1,48 +1,74 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int main() {
-  int num;
-  vector<string> words;
-  string chars;
-  cin >> num;
-  for (int i = 0; i < num; i++) {
-    string word;
-    cin >> word;
-    words.push_back(word);
+auto dirs = vector<pair<int, int>>{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+
+void solve(vector<vector<int>> candy) {
+  int n = candy.size(), m = candy[0].size();
+  int sx, sy, ex, ey;
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      if (candy[i][j] == -3) sx = i, sy = j;
+      if (candy[i][j] == -2) ex = i, ey = j;
+    }
   }
-  cin >> chars;
 
-  //   int num = 4;
-  //   vector<string> words = {"cat", "bt", "hat", "tree"};
-  //   string chars = "at?ch";
+  // max_candy
+  auto mc = vector<vector<int>>(n, vector<int>(m, -1));
+  auto step = vector<vector<int>>(n, vector<int>(m, INT_MAX));
+  mc[sx][sy] = step[sx][sy] = candy[sx][sy] = candy[ex][ey] = 0;
 
-  auto is_valid = [](const string &word, const string &chars) {
-    unordered_map<char, int> word_count, chars_count;
-    for (char c : word) {
-      word_count[c]++;
-    }
-    for (char c : chars) {
-      chars_count[c]++;
-    }
-    int need_question_mark = 0;
-    for (const auto &[c, count] : word_count) {
-      if (chars_count.find(c) == chars_count.end()) {
-        need_question_mark += count;
-      } else if (chars_count[c] < count) {
-        need_question_mark += count - chars_count[c];
+  queue<pair<int, int>> q;
+  q.push({sx, sy});
+
+  while (!q.empty()) {
+    int size = q.size();
+    while (size--) {
+      auto [x, y] = q.front();
+      q.pop();
+      for (auto [dx, dy] : dirs) {
+        int nx = x + dx, ny = y + dy;
+        if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+        if (candy[nx][ny] == -1) continue;
+        int nc = mc[x][y] + candy[nx][ny], ns = step[x][y] + 1;
+        if (ns > step[nx][ny]) continue;
+        if (ns < step[nx][ny]) {
+          step[nx][ny] = ns;
+          q.push({nx, ny});
+        }
+
+        if (nc > mc[nx][ny]) {
+          mc[nx][ny] = nc;
+        }
       }
     }
-    return need_question_mark <= chars_count['?'];
-  };
-
-  int ans = 0;
-  for (const string &word : words) {
-    if (is_valid(word, chars)) {
-      ans++;
-    }
   }
-  cout << ans << endl;
 
+  cout << mc[ex][ey] << endl;
+}
+
+int main() {
+  // solve({
+  //     {3, 2, 1, -3},  //
+  //     {1, -1, 1, 1},  //
+  //     {1, 1, -1, 2},  //
+  //     {-2, 1, 2, 3}   //
+  // });
+  solve({
+      {3, 2, 1, -3},  //
+      {1, -1, 1, 1},  //
+      {1, 1, -1, 2},  //
+      {-2, 1, 2, 3}   //
+  });
+  // int n;
+  // cin >> n;
+  // auto candy = vector<vector<int>>(n, vector<int>(n));
+  // for (int i = 0; i < n; i++) {
+  //   for (int j = 0; j < n; j++) {
+  //     cin >> candy[i][j];
+  //   }
+  // }
+
+  // solve(candy);
   return 0;
 }

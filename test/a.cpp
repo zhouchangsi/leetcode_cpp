@@ -1,36 +1,19 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void solution(string line) {
-  vector<string> airs;
-
-  istringstream iss(line);
-  string token;
-  while (getline(iss, token, ',')) {
-    airs.emplace_back(token);
+void solution(int k, int n, int m) {
+  int count = 0;
+  while (k) {
+    if (k % m == n) count++;
+    k /= m;
   }
-
-  sort(airs.begin(), airs.end(), [](const string &a, const string &b) {
-    string ca = a.substr(0, 2);
-    string cb = b.substr(0, 2);
-    if (ca == cb) {
-      return a.substr(2) < b.substr(2);
-    }
-    return ca < cb;
-  });
-
-  for (int i = 0; i < airs.size(); i++) {
-    cout << airs[i];
-    if (i != airs.size() - 1) {
-      cout << ",";
-    }
-  }
+  cout << count << endl;
 }
 
 int main() {
-  // solution("CA3385,CZ6678,SC6508,DU7523,HK4456,MK0987");
-  string line;
-  getline(cin, line);
-  solution(line);
-  return 0;
+  // solution(10, 2, 4);
+  // solution(10, 1, 3); //
+  int k, n, m;
+  cin >> k >> n >> m;
+  solution(k, n, m);
 }
