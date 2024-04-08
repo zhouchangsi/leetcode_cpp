@@ -2,10 +2,10 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "./common.h"
-#include "./graph.h"
-#include "./list.h"
-#include "./tree.h"
-#include "./union_find_set.h"
+#include "./env/common.h"
+#include "./env/graph.h"
+#include "./env/list.h"
+#include "./env/tree.h"
+#include "./env/union_find_set.h"
 
 using namespace leetcode;

@@ -1,74 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-auto dirs = vector<pair<int, int>>{{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
+void solve(string a, string b) {
+  int n = a.size();
+  int m = b.size();
+  auto dp = vector<vector<int>>(n + 1, vector<int>(m + 1, INT_MAX));
+  for (int i = 0; i < n + 1; i++) dp[i][0] = i;
+  for (int i = 0; i < n + 1; i++) dp[0][i] = i;
 
-void solve(vector<vector<int>> candy) {
-  int n = candy.size(), m = candy[0].size();
-  int sx, sy, ex, ey;
-  for (int i = 0; i < n; i++) {
-    for (int j = 0; j < m; j++) {
-      if (candy[i][j] == -3) sx = i, sy = j;
-      if (candy[i][j] == -2) ex = i, ey = j;
-    }
-  }
-
-  // max_candy
-  auto mc = vector<vector<int>>(n, vector<int>(m, -1));
-  auto step = vector<vector<int>>(n, vector<int>(m, INT_MAX));
-  mc[sx][sy] = step[sx][sy] = candy[sx][sy] = candy[ex][ey] = 0;
-
-  queue<pair<int, int>> q;
-  q.push({sx, sy});
-
-  while (!q.empty()) {
-    int size = q.size();
-    while (size--) {
-      auto [x, y] = q.front();
-      q.pop();
-      for (auto [dx, dy] : dirs) {
-        int nx = x + dx, ny = y + dy;
-        if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
-        if (candy[nx][ny] == -1) continue;
-        int nc = mc[x][y] + candy[nx][ny], ns = step[x][y] + 1;
-        if (ns > step[nx][ny]) continue;
-        if (ns < step[nx][ny]) {
-          step[nx][ny] = ns;
-          q.push({nx, ny});
-        }
-
-        if (nc > mc[nx][ny]) {
-          mc[nx][ny] = nc;
-        }
+  for (int i = 1; i < n + 1; i++) {
+    for (int j = 1; j < m + 1; j++) {
+      dp[i][j] = min(dp[i - 1][j] + 1, dp[i][j - 1] + 1);
+      if (a[i - 1] == b[j - 1]) {
+        dp[i][j] = min(dp[i][j], dp[i - 1][j - 1] + 1);
       }
     }
   }
 
-  cout << mc[ex][ey] << endl;
+  cout << dp[n][m] << endl;
 }
 
 int main() {
-  // solve({
-  //     {3, 2, 1, -3},  //
-  //     {1, -1, 1, 1},  //
-  //     {1, 1, -1, 2},  //
-  //     {-2, 1, 2, 3}   //
-  // });
-  solve({
-      {3, 2, 1, -3},  //
-      {1, -1, 1, 1},  //
-      {1, 1, -1, 2},  //
-      {-2, 1, 2, 3}   //
-  });
-  // int n;
-  // cin >> n;
-  // auto candy = vector<vector<int>>(n, vector<int>(n));
-  // for (int i = 0; i < n; i++) {
-  //   for (int j = 0; j < n; j++) {
-  //     cin >> candy[i][j];
-  //   }
-  // }
-
-  // solve(candy);
-  return 0;
+  // solve("ABC", "ABC");
+  // solve("ABCABBA", "CBABAC");
+  string a, b;
+  cin >> a >> b;
+  solve(a, b);
 }

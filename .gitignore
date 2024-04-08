@@ -9,3 +9,4 @@ CMakePresets.json
 CMakeSettings.json
 
 *.exe
+test

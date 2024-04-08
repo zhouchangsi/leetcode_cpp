@@ -1,4 +1,4 @@
-#include "leetcode/env.h"
+#include "leetcode.h"
 
 /**
  * LC20. 有效的括号

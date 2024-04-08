@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "od/od真题链接.md",
+                "file": "od/od真题.md",
                 "mode": "source",
                 "backlinks": true,
                 "source": false
@@ -86,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "od/od真题链接.md",
+                "file": "od/od真题.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "od/od真题链接.md",
+                "file": "od/od真题.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "od/od真题链接.md"
+                "file": "od/od真题.md"
               }
             }
           }
@@ -149,20 +149,21 @@
   },
   "active": "3fef3b48e94ec770",
   "lastOpenFiles": [
-    "od/od真题.md",
+    "algorithm/io/float_number_output.cc",
+    "algorithm/io",
+    "algorithm/float_number_output.cc",
+    "test/float_number_output.cc",
+    "algorithm/math/least_common_multiple_test.cpp",
+    "algorithm/math/greatest_common_divisor_test.cpp",
+    "algorithm/math/least_common_multiple.h",
+    "algorithm/math/greatest_common_divisor.h",
+    "algorithm/math",
+    "algorithm/data_structure/stl/test.cpp",
+    "algorithm/data_structure/stl/test.exe",
     "od/od真题链接.md",
+    "od/od真题.md",
     "od/小林coding-图解系统.md",
-    "solutions/od/【模拟】2023C-解密犯罪时间.exe",
-    "solutions/od/【模拟】2023C-解密犯罪时间.cc",
-    "solutions/od/【排序】2023C-数组去重和排序.exe",
-    "solutions/od/【排序】2023C-数组去重和排序.cc",
-    "solutions/od/【哈希表】2023C-内存冷热标记.cc",
-    "solutions/od/【BFS】亲子游戏.cc",
     "od/leetcode.md",
-    "solutions/leetcode_solutions/leetcode414.cpp",
-    "solutions/od/2023C-回收银饰.exe",
-    "solutions/od/tempCodeRunnerFile.exe",
-    "solutions/od/tempCodeRunnerFile.cc",
     "od/day20_backtrack.md",
     "od/HR推荐题目.md",
     "od/day06_two_pointer.md",

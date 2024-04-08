@@ -73,3 +73,4 @@
 [2023B-猜密码](../solutions/day20_backtrack/2023B-猜密码.cpp)
 [2023C-GPU调度](../solutions/od/【模拟】2023C-GPU调度.cc)
 [【BFS】亲子游戏](../solutions/od/【BFS】亲子游戏.cc)
+[【DP】2023C-通过软盘拷贝文件](../solutions/od/【DP】2023C-通过软盘拷贝文件.cc)
