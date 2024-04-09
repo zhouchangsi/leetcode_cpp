@@ -1,8 +1,5 @@
-#include <gtest/gtest.h>
-#include "leetcode.h"
-
+#include <bits/stdc++.h>
 using namespace std;
-using namespace leetcode;
 
 class Solution {
  public:
@@ -20,10 +17,3 @@ class Solution {
     return ans;
   }
 };
-
-TEST(leetcode503, solution) {
-  Solution s;
-  vector<int> nums{1, 2, 1};
-  vector<int> expect{2, -1, 2};
-  EXPECT_EQ(s.nextGreaterElements(nums), expect);
-}

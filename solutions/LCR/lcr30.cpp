@@ -10,25 +10,25 @@ class RandomizedSet {
   RandomizedSet() { srand((unsigned)time(NULL)); }
 
   bool insert(int val) {
-    if (indices.count(val)) {
+    if (val2index.count(val)) {
       return false;
     }
     int index = nums.size();
     nums.emplace_back(val);
-    indices[val] = index;
+    val2index[val] = index;
     return true;
   }
 
   bool remove(int val) {
-    if (!indices.count(val)) {
+    if (!val2index.count(val)) {
       return false;
     }
-    int index = indices[val];
+    int index = val2index[val];
     int last = nums.back();
     nums[index] = last;
-    indices[last] = index;
+    val2index[last] = index;
     nums.pop_back();
-    indices.erase(val);
+    val2index.erase(val);
     return true;
   }
 
@@ -39,5 +39,5 @@ class RandomizedSet {
 
  private:
   vector<int> nums;
-  unordered_map<int, int> indices;
+  unordered_map<int, int> val2index;
 };

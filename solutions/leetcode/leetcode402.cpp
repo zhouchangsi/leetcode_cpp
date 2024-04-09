@@ -33,6 +33,6 @@ class Solution {
     while (ans.size() > 1 && ans[0] == '0') {
       ans.erase(ans.begin());
     }
-    return ans;
+    return ans.empty() ? "0" : ans;
   }
 };

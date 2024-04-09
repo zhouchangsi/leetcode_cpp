@@ -10,10 +10,12 @@ void dfs_boundary(vector<vector<int>> &grid, int i, int j) {
 
   for (auto [dx, dy] : dirs) {
     int x = i + dx, y = j + dy;
-    if (x < 0 || x >= m || y < 0 || y >= n) continue;
-    if (grid[x][y] == 3) {
-      dfs_boundary(grid, x, y);
+    if (x < 0 || y >= m || x < 0 || y >= n ||  //
+        grid[x][y] == 1 || grid[x][y] == 5     //
+    ) {
+      continue;
     }
+    dfs_boundary(grid, x, y);
   }
 }
 
@@ -25,10 +27,8 @@ void count_boundary(vector<vector<int>> grid) {
       if (grid[i][j] != 5) continue;
       for (auto [dx, dy] : dirs) {
         int x = i + dx, y = j + dy;
-        if (x < 0 || x >= m || y < 0 || y >= n) continue;
-        if (grid[x][y] == 1) {
-          grid[x][y] = 3;
-        }
+        if (x < 0 || x >= m || y < 0 || y >= n || grid[x][y] == 5) continue;
+        grid[x][y] = 3;
       }
     }
   }
@@ -47,22 +47,22 @@ void count_boundary(vector<vector<int>> grid) {
 }
 
 int main() {
-  // count_boundary({{1, 1, 1, 1, 1, 1},
-  //                 {1, 5, 1, 1, 1, 1},
-  //                 {1, 1, 1, 1, 1, 1},
-  //                 {1, 1, 1, 1, 1, 1},
-  //                 {1, 1, 1, 1, 1, 1},
-  //                 {1, 1, 1, 1, 1, 5}});
+  count_boundary({{1, 1, 1, 1, 1, 1},
+                  {1, 5, 1, 1, 1, 1},
+                  {1, 1, 1, 1, 1, 1},
+                  {1, 1, 1, 1, 1, 1},
+                  {1, 1, 1, 1, 1, 1},
+                  {1, 1, 1, 1, 1, 5}});
 
-  int m{}, n{};
-  cin >> m >> n;
-  vector<vector<int>> grid(m, vector<int>(n));
-  for (int i = 0; i < m; i++) {
-    for (int j = 0; j < n; j++) {
-      cin >> grid[i][j];
-    }
-  }
-  count_boundary(grid);
+  // int m{}, n{};
+  // cin >> m >> n;
+  // vector<vector<int>> grid(n, vector<int>(m));
+  // for (int i = 0; i < m; i++) {
+  //   for (int j = 0; j < n; j++) {
+  //     cin >> grid[i][j];
+  //   }
+  // }
+  // cout << Solution().count_boundary(grid) << endl;
 
   return 0;
 }

@@ -1,43 +1,32 @@
-#include <gtest/gtest.h>
-#include "leetcode.h"
-
+#include <bits/stdc++.h>
 using namespace std;
-using namespace leetcode;
 
+
+// o(n+m) space
 class Solution {
  public:
-  int minDistance(string word1, string word2) {
-    int n = word1.size();
-    int m = word2.size();
-    vector<vector<int>> dp(n + 1, vector<int>(m + 1, 0));
-    for (int i = 0; i <= n; ++i) {
-      for (int j = 0; j <= m; ++j) {
-        if(i == 0) {
-          dp[i][j] = j;
-          continue;
-        }
-
-        if(j == 0) {
-          dp[i][j] = i;
-          continue;
-        }
-
-        if (word1[i - 1] == word2[j - 1]) {
-          dp[i][j] = dp[i - 1][j - 1];
-        } else {
-          int insert = dp[i][j - 1] + 1;
-          int del = dp[i - 1][j] + 1;
-          int replace = dp[i - 1][j - 1] + 1;
-          dp[i][j] = min(insert, min(del, replace));
+  void setZeroes(vector<vector<int>>& matrix) {
+    int n = matrix.size(), m = matrix[0].size();
+    unordered_set<int> rows, cols;
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        if (matrix[i][j] == 0) {
+          rows.insert(i);
+          cols.insert(j);
         }
       }
     }
-    return dp[n][m];
+
+    for (int i = 0; i < n; i++) {
+      for (int j = 0; j < m; j++) {
+        if (rows.count(i) || cols.count(j)) {
+          matrix[i][j] = 0;
+        }
+      }
+    }
   }
 };
 
-TEST(leetcode72, solution) {
-  Solution s;
-  EXPECT_EQ(s.minDistance("horse", "ros"), 3);
-  EXPECT_EQ(s.minDistance("intention", "execution"), 5);
-}
+
+// o(1) space
+// https://leetcode.cn/problems/set-matrix-zeroes/?envType=study-plan-v2&envId=top-100-liked

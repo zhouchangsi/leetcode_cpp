@@ -1,9 +1,5 @@
-#include <gtest/gtest.h>
-#include "leetcode.h"
-
+#include <bits/stdc++.h>
 using namespace std;
-using namespace leetcode;
-
 
 class Solution {
  public:
@@ -32,8 +28,3 @@ class Solution {
     return s;
   }
 };
-
-TEST(leetcode345, solution) {
-  EXPECT_EQ(Solution().reverseVowels("hello"), "holle");
-  EXPECT_EQ(Solution().reverseVowels("leetcode"), "leotcede");
-}

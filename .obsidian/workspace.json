@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "0ab850c7202472e7",
+        "id": "da1d968a5664ef34",
         "type": "tabs",
         "children": [
           {
-            "id": "3fef3b48e94ec770",
+            "id": "993a2e8abd6c54e1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -147,23 +147,26 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "3fef3b48e94ec770",
+  "active": "993a2e8abd6c54e1",
   "lastOpenFiles": [
-    "algorithm/io/float_number_output.cc",
-    "algorithm/io",
-    "algorithm/float_number_output.cc",
-    "test/float_number_output.cc",
-    "algorithm/math/least_common_multiple_test.cpp",
-    "algorithm/math/greatest_common_divisor_test.cpp",
-    "algorithm/math/least_common_multiple.h",
-    "algorithm/math/greatest_common_divisor.h",
-    "algorithm/math",
-    "algorithm/data_structure/stl/test.cpp",
-    "algorithm/data_structure/stl/test.exe",
-    "od/od真题链接.md",
-    "od/od真题.md",
-    "od/小林coding-图解系统.md",
+    "test/tempCodeRunnerFile.cc",
+    "build/test.exe",
+    "build",
+    "solutions/od/2023C-图像物体的边界.exe",
+    "od/day01_stack,queue.md",
+    "solutions/od/2023C-图像物体的边界.cpp",
+    "solutions/od/0.cpp",
+    "od/day09_two_pointer.md",
     "od/leetcode.md",
+    "solutions/leetcode/leetcode707.cpp",
+    "solutions/leetcode/leetcode811.cpp",
+    "solutions/leetcode/leetcode641.cpp",
+    "solutions/leetcode/leetcode25.cpp",
+    "solutions/leetcode/leetcode295.exe",
+    "od/leetcode plus.md",
+    "od/od真题.md",
+    "od/od真题链接.md",
+    "od/小林coding-图解系统.md",
     "od/day20_backtrack.md",
     "od/HR推荐题目.md",
     "od/day06_two_pointer.md",
@@ -176,14 +179,11 @@
     "od/day14_dp.md",
     "od/day11_slide_window.md",
     "od/day10_slide_window.md",
-    "od/day09_two_pointer.md",
     "od/day08_two_pointer.md",
     "od/day07_two_pointer.md",
     "od/day04_hash.md",
     "od/day03_hash.md",
     "od/day02_stack.md",
-    "od/day01_stack,queue.md",
-    "test/system_design.md",
-    "test/huawei od course.md"
+    "test/system_design.md"
   ]
 }
